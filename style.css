@@ -1,0 +1,105 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+    --accent-purple: #6c5ce7;    /* 팬미팅 */
+    --accent-mint: #00cec9;      /* 드라마 */
+    --accent-viral: #3498db;     /* 바이럴 */
+    --accent-gold: #c2a37d;      /* 프로젝트/골드디거 */
+    --accent-event: #ff7675;     /* 행사 */
+    --accent-pictorial: #e84393; /* 화보 (로즈 핑크) */
+    --text-silver: #a0a0a0;
+    --border-color: #2a2a2a;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.slide {
+    width: 1280px; height: 720px;
+    padding: 40px 50px; box-sizing: border-box;
+    display: flex; flex-direction: column;
+    position: relative; margin: 20px 0; overflow: hidden;
+}
+
+/* DARK MODE */
+.slide.dark { background-color: #121212; color: #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+.slide.dark .header { border-bottom: 1px solid #2a2a2a; padding-bottom: 20px; margin-bottom: 35px; text-align: left; }
+.slide.dark .header h1 { color: var(--accent-gold); font-size: 32px; letter-spacing: 2px; margin: 0; }
+
+/* LIGHT MODE */
+.slide.light { background-color: #fff; color: #2d3436; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.slide.light .header { border-bottom: 3px solid var(--accent-purple); text-align: center; }
+
+/* Table Shared */
+table { width: 100%; border-collapse: collapse; table-layout: fixed; flex-grow: 1; }
+th, td { text-align: center; font-size: 12px; height: 48px; position: relative; border: 1px solid var(--border-color); }
+th, .category { background-color: #0a0a0a; color: var(--text-silver); font-weight: 600; }
+.category { width: 160px; }
+
+/* Gantt Bars */
+.bar {
+    border-radius: 4px; font-size: 11px; margin: 0 4px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; border: 1px solid rgba(255,255,255,0.1);
+}
+.bar.fan { border-color: var(--accent-purple); color: #cbbfff; background: rgba(108, 92, 231, 0.2); }
+.bar.drama { border-color: var(--accent-mint); color: #bffffd; background: rgba(0, 206, 201, 0.1); }
+.bar.viral { border-color: var(--accent-viral); color: #bee3ff; background: rgba(52, 152, 219, 0.2); }
+.bar.movie { border-color: var(--accent-gold); color: #ffe8cc; background: rgba(194, 163, 125, 0.15); }
+.bar.event { border-color: var(--accent-event); color: #ffcccc; background: rgba(255, 118, 117, 0.15); line-height: 1.2; }
+.bar.pictorial { border-color: var(--accent-pictorial); color: #ffcae3; background: rgba(232, 67, 147, 0.15); }
+.bar:not([class*=" "]) { background-color: rgba(255,255,255,0.05); color: #ddd; }
+
+/* Project Box Containers */
+.viral-container { position: absolute; top: 4px; bottom: 4px; border-radius: 8px; z-index: 1; display: flex; justify-content: center; pointer-events: none; }
+.container-label { position: absolute; top: -16px; font-size: 10px; font-weight: 700; color: var(--accent-gold); background: #121212; padding: 0 8px; }
+.drama-box { border: 1px solid rgba(0, 206, 201, 0.4); background-color: rgba(0, 206, 201, 0.05); }
+.movie-box { border: 1px solid rgba(194, 163, 125, 0.4); background-color: rgba(194, 163, 125, 0.05); }
+
+.page-num { position: absolute; bottom: 30px; right: 50px; font-size: 12px; color: #444; }
+/* 상세 페이지 정보 섹션 스타일 */
+.info-section {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--accent-purple);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    font-size: 14px;
+    color: #2d3436;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.info-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 4px;
+    height: 4px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
