@@ -2,8 +2,39 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배우 노상현 2026 로드맵 - 최종</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 모바일 최적화를 위한 추가 스타일 */
+        body { margin: 0; padding: 0; overflow-x: hidden; }
+        .slide { 
+            height: auto !important; /* 고정 높이 해제 */
+            min-height: 100vh; 
+            padding: 20px !important;
+            box-sizing: border-box;
+        }
+        /* 가로로 나열된 요소들을 세로로 정렬 (Flex-direction 변경) */
+        div[style*="display: flex"] {
+            flex-direction: column !important;
+            height: auto !important;
+            gap: 20px !important;
+        }
+        /* 이미지 영역과 텍스트 영역 너비 조정 */
+        div[style*="flex: 1"], div[style*="flex: 1.1"], div[style*="flex: 1.2"] {
+            width: 100% !important;
+            flex: none !important;
+        }
+        /* 테이블이 넘치는 문제 해결 */
+        table { 
+            display: block; 
+            overflow-x: auto; 
+            white-space: nowrap; 
+            -webkit-overflow-scrolling: touch;
+        }
+        h1 { font-size: 24px !important; }
+        .page-num { position: static !important; margin-top: 20px; text-align: center; }
+    </style>
 </head>
 <body>
 
