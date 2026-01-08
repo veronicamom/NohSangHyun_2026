@@ -2,12 +2,85 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>배우 노상현 2026 로드맵 - 최종</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>배우 노상현 2026 로드맵 - CONFIDENTIAL</title>
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <style>
+        /* 초기 화면 숨김 (비번 확인 전까지) */
+        html { display: none; }
+        
+        /* 텍스트 드래그 및 선택 방지 */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: #000;
+        }
+
+        /* 이미지 우클릭 및 저장 방지 */
+        img {
+            -webkit-touch-callout: none;
+            pointer-events: none;
+        }
+
+        /* 프린트 및 PDF 저장 시 내용 숨김 */
+        @media print {
+            body { display: none !important; }
+        }
+
+        /* 워터마크 (Confidential) */
+        .slide::after {
+            content: "CONFIDENTIAL / NOH SANG HYUN 2026";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 4rem;
+            color: rgba(128, 128, 128, 0.08);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
+    <script>
+        (function() {
+            // 1. 대한민국 시간 계산 (UTC+9)
+            var now = new Date();
+            var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            var kst = new Date(utc + (3600000 * 9));
 
+            // 2. 날짜와 시간 추출 (예: 8일 11시 -> "0811")
+            var day = ("0" + kst.getDate()).slice(-2);
+            var hour = ("0" + kst.getHours()).slice(-2);
+            
+            // 3. 최종 비밀번호 생성 (기본값 1412 + 날짜 + 시간)
+            // 예: 1월 8일 오전 11시 접속 시 비번은 "14120811"
+            var dynamicPassword = "1412" + day + hour;
+
+            var userInput = prompt("관리자에게 부여받은 '현재 시간' 비밀번호를 입력하세요:", "");
+            
+            if (!userInput || userInput.trim() !== dynamicPassword) {
+                alert("비밀번호가 올바르지 않거나 만료되었습니다. (현재 시간 기준 갱신)");
+                location.href = "about:blank";
+            } else {
+                document.documentElement.style.display = "block";
+            }
+
+            // 보안 로직 (우클릭/캡처 방지)
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p'))) {
+                    e.preventDefault(); return false;
+                }
+            });
+        })();
+    </script>
     <div class="slide light" style="justify-content: center; align-items: center; text-align: center;">
         <div style="width: 80px; height: 4px; background: var(--accent-purple); margin-bottom: 40px;"></div>
         <div class="header" style="border: none; margin-bottom: 0;">
