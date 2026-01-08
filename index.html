@@ -2,81 +2,117 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배우 노상현 2026 로드맵 - 최종</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <style>
+        /* --- 디자인 변수 및 기본 설정 --- */
         :root {
+            --bg-color: #f3f4f6;
+            --slide-bg: #ffffff;
+            --primary-dark: #2d3436;
             --accent-purple: #6c5ce7;
             --accent-gold: #c2a37d;
             --accent-mint: #00cec9;
             --netflix-red: #E50914;
+            --font-main: 'Pretendard', sans-serif;
         }
 
-        body { margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, sans-serif; background: #f8f9fa; color: #2d3436; line-height: 1.6; }
-        
-        /* 슬라이드 기본 구조 */
-        .slide {
-            width: 100%;
-            min-height: 100vh;
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            padding: 40px 20px;
+            align-items: center;
+        }
+
+        /* 슬라이드 박스: 모바일 최적화 사이즈 */
+        .slide {
+            background-color: var(--slide-bg);
+            width: 100%;
+            max-width: 1000px;
+            min-height: 562px; /* 16:9 비율 유지 시도 */
+            height: auto;      /* 내용 많으면 늘어남 */
+            margin-bottom: 40px;
+            padding: 40px 30px;
             box-sizing: border-box;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .slide.dark { background: #111; color: #eee; }
-        .slide.light { background: #fff; }
-
-        /* 헤더 스타일 */
-        .header { margin-bottom: 30px; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px; }
-        .header h1 { margin: 5px 0 0 0; font-size: 28px; font-weight: 900; letter-spacing: -1px; }
-        .header p { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--accent-purple); }
-
-        /* 레이아웃: 모바일에서는 세로, PC에서는 가로(자동 대응) */
-        .content-wrapper {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 16px;
             display: flex;
-            flex-direction: column; /* 모바일 기본 세로 */
-            gap: 25px;
-            flex-grow: 1;
+            flex-direction: column;
+            overflow: visible;
         }
 
-        .visual-area { width: 100%; border-radius: 20px; overflow: hidden; position: relative; background: #eee; }
-        .visual-area img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 350px; }
-        
-        .info-area { width: 100%; display: flex; flex-direction: column; gap: 15px; }
+        .slide.dark { background: #111; color: #fff; }
 
-        /* 카드 스타일 */
-        .card { background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .card h3 { margin: 0 0 12px 0; font-size: 17px; display: flex; align-items: center; gap: 10px; color: #111; }
-        .card-num { background: var(--accent-purple); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
-        
-        ul { margin: 0; padding-left: 18px; font-size: 13px; color: #636e72; }
-        li { margin-bottom: 8px; }
+        /* 타이포그래피 */
+        h1 { font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px; }
+        h3 { font-size: 1.2rem; margin: 0; }
+        p { font-size: 0.95rem; color: #636e72; }
 
-        /* 로드맵 테이블 특화 */
-        .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0; border-radius: 10px; }
+        /* 로드맵 테이블 전용 스크롤 박스 */
+        .table-container {
+            width: 100%;
+            overflow-x: auto; /* 모바일 가로 스크롤 */
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 10px;
+        }
+
         table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 11px; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
-        .category { background: #222; font-weight: bold; width: 120px; position: sticky; left: 0; z-index: 2; }
-        .bar { padding: 4px; border-radius: 4px; font-weight: bold; font-size: 10px; }
-        .bar.movie { background: #e17055; }
-        .bar.drama { background: #0984e3; }
-        .bar.fan { background: var(--accent-purple); }
-        .bar.viral { background: #00b894; }
+        th, td { border: 1px solid #333; padding: 12px 8px; text-align: center; }
+        .category { background: #2d3436; font-weight: bold; width: 120px; position: sticky; left: 0; }
+        
+        /* 일정 바 스타일 */
+        .bar { padding: 4px; border-radius: 4px; font-weight: bold; font-size: 10px; color: #fff; }
+        .movie { background: #e17055; }
+        .drama { background: #0984e3; }
+        .fan { background: var(--accent-purple); }
+        .viral { background: #00b894; }
 
-        /* 하단 밴드 */
-        .footer-summary { margin-top: auto; background: #2d3436; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: #fff; font-size: 12px; }
+        /* 콘텐츠 레이아웃 (반응형) */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* PC 기본 */
+            gap: 30px;
+            margin-top: 20px;
+        }
 
-        .page-num { text-align: center; font-size: 10px; color: #999; margin-top: 20px; font-weight: 800; }
+        .visual-box {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #eee;
+            position: relative;
+        }
+        
+        .visual-box img { width: 100%; height: 100%; object-fit: cover; min-height: 250px; }
 
-        /* PC 버전 대응 (너비 1024px 이상일 때) */
-        @media (min-width: 1024px) {
-            .content-wrapper { flex-direction: row; align-items: stretch; }
-            .visual-area { flex: 1; }
-            .info-area { flex: 1.2; }
-            .slide { padding: 60px 80px; }
+        .card { background: #f9fafb; padding: 20px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 15px; }
+        .card-num { 
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 24px; height: 24px; border-radius: 50%; 
+            background: var(--accent-purple); color: #fff; font-size: 11px; margin-right: 8px;
+        }
+
+        .footer-summary {
+            margin-top: auto; padding: 15px; background: #2d3436; color: #fff;
+            border-radius: 10px; display: flex; align-items: center; gap: 15px; font-size: 0.85rem;
+        }
+
+        .page-num { align-self: center; margin-top: 20px; font-size: 12px; color: #9ca3af; font-weight: 500; }
+
+        /* 모바일용 레이아웃 조정 */
+        @media (max-width: 768px) {
+            .slide { padding: 30px 20px; }
+            .grid-layout { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .visual-box img { min-height: 200px; }
         }
     </style>
 </head>
@@ -1331,4 +1367,5 @@
 </div>
 </body>
 </html>
+
 
