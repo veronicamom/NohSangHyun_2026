@@ -103,3 +103,50 @@ th, .category { background-color: #0a0a0a; color: var(--text-silver); font-weigh
     background-color: #ccc;
     border-radius: 50%;
 }
+/* 기존 .slide 스타일 수정 */
+.slide {
+    width: 1280px;      /* 데스크탑 기본 크기 */
+    height: 720px;     /* 데스크탑 기본 높이 */
+    padding: 40px 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 20px auto; /* 중앙 정렬 */
+    overflow: hidden;
+}
+
+/* 모바일용 반응형 스타일 (화면 폭이 1280px보다 작아질 때 적용) */
+@media (max-width: 1280px) {
+    .slide {
+        width: 100%;     /* 가로 폭을 화면에 맞춤 */
+        height: auto;    /* 높이가 내용에 따라 늘어나도록 설정 (잘림 방지) */
+        min-height: 100vh; /* 최소 높이는 화면 꽉 차게 */
+        padding: 20px;   /* 여백 줄임 */
+        aspect-ratio: auto; /* 고정 비율 해제 */
+    }
+
+    /* 내부 요소들이 겹치지 않게 세로로 나열 (flex나 grid 사용 시) */
+    .grid-2, .grid-3, .display-flex-class { 
+        display: flex;
+        flex-direction: column !important; 
+        gap: 20px;
+    }
+
+    /* 이미지나 큰 카드들의 크기 조절 */
+    img, .card, .info-section {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 폰트 크기가 너무 크면 줄이기 */
+    h1 { font-size: 24px !important; }
+    h2 { font-size: 20px !important; }
+}
+@media (max-width: 1280px) {
+    table {
+        display: block;      /* 표를 블록화 */
+        overflow-x: auto;    /* 가로 스크롤 허용 */
+        white-space: nowrap; /* 글자 줄바꿈 방지 */
+    }
+}
