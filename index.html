@@ -50,35 +50,31 @@
 <body>
     <script>
         (function() {
-            // 1. 대한민국 시간 계산 (UTC+9)
-            var now = new Date();
-            var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            var kst = new Date(utc + (3600000 * 9));
+            // 1. KST 시간 계산 최적화
+            const now = new Date();
+            const kstOffset = 9 * 60 * 60 * 1000;
+            const kstDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + kstOffset);
 
-            // 2. 날짜와 시간 추출 (예: 8일 11시 -> "0811")
-            var day = ("0" + kst.getDate()).slice(-2);
-            var hour = ("0" + kst.getHours()).slice(-2);
-            
-            // 3. 최종 비밀번호 생성 (기본값 1412 + 날짜 + 시간)
-            // 예: 1월 8일 오전 11시 접속 시 비번은 "14120811"
-            var dynamicPassword = "1412" + day + hour;
+            const day = String(kstDate.getDate()).padStart(2, '0');
+            const hour = String(kstDate.getHours()).padStart(2, '0');
+            const dynamicPassword = "1412" + day + hour;
 
-            var userInput = prompt("관리자에게 부여받은 비밀번호를 입력하세요:", "");
+            // 2. 입력 프로세스
+            const userInput = prompt("CONFIDENTIAL: 관리자 비밀번호를 입력하십시오.");
             
-            if (!userInput || userInput.trim() !== dynamicPassword) {
-                alert("비밀번호가 올바르지 않거나 만료되었습니다. (현재 시간 기준 갱신)");
-                location.href = "about:blank";
+            if (userInput === dynamicPassword) {
+                // 인증 성공 시에만 body를 보여줌
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.body.style.visibility = "visible";
+                    document.documentElement.style.display = "block";
+                });
             } else {
-                document.documentElement.style.display = "block";
+                alert("접근 권한이 없거나 비밀번호가 만료되었습니다.");
+                location.replace("about:blank");
             }
 
-            // 보안 로직 (우클릭/캡처 방지)
-            document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p'))) {
-                    e.preventDefault(); return false;
-                }
-            });
+            // 3. 우클릭 방지 유지 + 알림 추가 (선택사항)
+            document.addEventListener('contextmenu', e => e.preventDefault());
         })();
     </script>
     <div class="slide light" style="justify-content: center; align-items: center; text-align: center;">
@@ -102,7 +98,7 @@
             </thead>
             <tbody>               
                 <tr>
-                    <td class="category">별짓 프로젝트</td>
+                    <td class="category">별짓</td>
                     <td></td><td colspan="3"><div class="bar movie">별짓 촬영 (2~4월)</div></td><td colspan="7"></td><td><div class="bar movie">별짓 오픈</div></td>
                 </tr>
                 <tr>
@@ -111,7 +107,7 @@
                 </tr>
                 <tr>
                     <td class="category">21세기 대군부인</td>
-                    <td><div class="bar drama">채널 섭외</div></td><td colspan="2"><div class="bar drama">방송/유튜브 촬영</div></td><td><div class="bar drama">영상 릴리즈</div></td><td><div class="bar drama">홍보</div></td><td><div class="bar drama">매체인터뷰</div></td><td colspan="6"></td>
+                    <td><div class="bar drama">채널 섭외</div></td><td colspan="2"><div class="bar drama">방송/유튜브 촬영</div></td><td><div class="bar drama">영상 릴리즈</div></td><td><div class="bar drama">홍보 / 매체인터뷰<br></div></td>
                 </tr>
                 <tr>
                     <td class="category">프로필 전략</td>
@@ -119,7 +115,7 @@
                 </tr>
                 <tr>
                     <td class="category">팬미팅</td>
-                    <td><div class="bar fan">업체미팅</div></td><td><div class="bar fan">기획단계</div></td><td><div class="bar fan">콘셉트</div></td><td><div class="bar fan">확정/준비</div></td><td><div class="bar fan">준비</div></td><td><div class="bar fan">국내</div></td><td colspan="3"><div class="bar fan">해외 투어 진행</div></td><td colspan="3"></td>
+                    <td><div class="bar fan">업체미팅</div></td><td><div class="bar fan">기획단계</div></td><td><div class="bar fan">콘셉트 확정</div></td><td><div class="bar fan">준비</div></td><td><div class="bar fan">준비</div></td><td><div class="bar fan">국내</div></td><td colspan="3"><div class="bar fan">해외 투어 진행</div></td><td colspan="3"></td>
                 </tr>
                 <tr>
                     <td class="category">콘텐츠 바이럴</td>
@@ -143,10 +139,10 @@
                 </tr>
                 <tr>
                     <td class="category">기타 행사</td>
-                    <td><div class="bar event">F/W</div></td><td></td><td></td>
+                    <td><div class="bar event">FW S/S</div></td><td></td><td></td>
                     <td colspan="2"><div class="bar event">브랜드 행사 (4~5월)</div></td>
                     <td></td><td></td><td></td><td><div class="bar event">브랜드 행사</div></td>
-                    <td colspan="2"><div class="bar event">Fashion Week (10~11월)</div></td>
+                    <td colspan="2"><div class="bar event">FW F/W</div></td>
                     <td><div class="bar event">FW /<br>연말 시상식</div></td>
                 </tr>
                 <tr>
@@ -401,56 +397,68 @@
             </div>
         </div>
 
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 15px; justify-content: center;">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; justify-content: center;">
             
-            <div style="background: #f8f9fa; border-radius: 15px; padding: 20px; border: 1px solid #eee;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                    <div style="background: #000; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900;">01</div>
-                    <h3 style="margin: 0; font-size: 16px; color: #111;">하이엔드 이미지 스토리 확충</h3>
+            <div style="background: #f8f9fa; border-radius: 15px; padding: 15px; border: 1px solid #eee;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div style="background: #000; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;">01</div>
+                    <h3 style="margin: 0; font-size: 15px; color: #111;">하이엔드 이미지 스토리 확충</h3>
                 </div>
-                <p style="font-size: 12px; color: #444; line-height: 1.6; margin: 0;">
+                <p style="font-size: 11px; color: #444; line-height: 1.5; margin: 0;">
                     <strong>롤스로이스</strong>의 무결점 럭셔리 이미지와 결합하여 글로벌 광고 시장 내 '티어(Tier)'를 최상위 등급으로 재편. 고단가 럭셔리 브랜드 제안 유도의 트리거 확보.
                 </p>
             </div>
 
-            <div style="background: #f8f9fa; border-radius: 15px; padding: 20px; border: 1px solid #eee;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                    <div style="background: #000; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900;">02</div>
-                    <h3 style="margin: 0; font-size: 16px; color: #111;">글로벌 패션 아이콘 입지 강화</h3>
+            <div style="background: #f8f9fa; border-radius: 15px; padding: 15px; border: 1px solid #eee;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div style="background: #000; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;">02</div>
+                    <h3 style="margin: 0; font-size: 15px; color: #111;">글로벌 패션 아이콘 입지 강화</h3>
                 </div>
-                <p style="font-size: 12px; color: #444; line-height: 1.6; margin: 0;">
+                <p style="font-size: 11px; color: #444; line-height: 1.5; margin: 0;">
                     파리 <strong>드롤드무슈</strong> 쇼 참석을 통해 트렌디하고 감도 높은 패션 소화력 입증. 글로벌 앰버서더 발탁을 위한 빌드업.
                 </p>
             </div>
 
-            <div style="background: #f8f9fa; border-radius: 15px; padding: 20px; border: 1px solid #eee;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                    <div style="background: #000; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900;">03</div>
-                    <h3 style="margin: 0; font-size: 16px; color: #111;">광고 시장 내 티어(Tier)' 재편</h3>
+            <div style="background: #f8f9fa; border-radius: 15px; padding: 15px; border: 1px solid #eee;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div style="background: #000; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;">03</div>
+                    <h3 style="margin: 0; font-size: 15px; color: #111;">광고 시장 내 티어(Tier) 재편</h3>
                 </div>
-                <p style="font-size: 12px; color: #444; line-height: 1.6; margin: 0;">
-                    메이저 남성지 에스콰이어의 <strong>디지털커버</strong> 모델로서의 상징성 확보. 이는 럭셔리 워치, 뷰티, 패션 등 <strong>고 단가 브랜드 광고 시장</strong>에서의 포지셔닝을 최상위 등급으로 레벨업 시키는 작업.
+                <p style="font-size: 11px; color: #444; line-height: 1.5; margin: 0;">
+                    메이저 남성지 에스콰이어의 <strong>디지털커버</strong> 모델로서의 상징성 확보. 이는 럭셔리 워치, 뷰티 등 고 단가 브랜드 광고 시장에서의 포지셔닝 레벨업 작업.
                 </p>
             </div>
 
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <div style="flex: 1; text-align: center; border-right: 1px solid #ddd; padding: 10px 0;">
-                    <div style="font-size: 10px; color: #999; font-weight: 700; margin-bottom: 3px;">글로벌 인지도</div>
-                    <div style="font-size: 14px; font-weight: 800; color: #000;">UPGRADE</div>
+            <div style="background: #fdfcf9; border-radius: 15px; padding: 15px; border: 1px solid #e9e4d9; border-left: 4px solid var(--accent-gold);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div style="background: var(--accent-gold); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;">04</div>
+                    <h3 style="margin: 0; font-size: 15px; color: #111;">하이엔드 워치 앰버서더 추진</h3>
                 </div>
-                <div style="flex: 1; text-align: center; border-right: 1px solid #ddd; padding: 10px 0;">
-                    <div style="font-size: 10px; color: #999; font-weight: 700; margin-bottom: 3px;">럭셔리 광고 제안</div>
-                    <div style="font-size: 14px; font-weight: 800; color: #000;">MAXIMUM</div>
+                <p style="font-size: 11px; color: #444; line-height: 1.5; margin: 0;">
+                    1월 중 <strong>롤렉스(Rolex)</strong> 지사 담당자 미팅을 통한 브랜드 앰버서더 협의 추진. 배우 고유의 클래식한 무드를 워치 시장 내 프리미엄 자산으로 연결.
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 5px;">
+                <div style="flex: 1; text-align: center; border-right: 1px solid #ddd; padding: 5px 0;">
+                    <div style="font-size: 9px; color: #999; font-weight: 700; margin-bottom: 2px;">글로벌 인지도</div>
+                    <div style="font-size: 12px; font-weight: 800; color: #000;">UPGRADE</div>
                 </div>
-                <div style="flex: 1; text-align: center; padding: 10px 0;">
-                    <div style="font-size: 10px; color: #999; font-weight: 700; margin-bottom: 3px;">브랜드 가치</div>
-                    <div style="font-size: 14px; font-weight: 800; color: #000;">PREMIUM</div>
+                <div style="flex: 1; text-align: center; border-right: 1px solid #ddd; padding: 5px 0;">
+                    <div style="font-size: 9px; color: #999; font-weight: 700; margin-bottom: 2px;">럭셔리 광고 제안</div>
+                    <div style="font-size: 12px; font-weight: 800; color: #000;">MAXIMUM</div>
+                </div>
+                <div style="flex: 1; text-align: center; padding: 5px 0;">
+                    <div style="font-size: 9px; color: #999; font-weight: 700; margin-bottom: 2px;">브랜드 가치</div>
+                    <div style="font-size: 12px; font-weight: 800; color: #000;">PREMIUM</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="page-num">05. JANUARY STRATEGY IIII</div>
 </div>
+
+
 <div class="slide light">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-mint);">
         <p style="color: var(--accent-mint); font-weight: 800; margin: 0; letter-spacing: 2px;">02. FEBRUARY</p>
@@ -467,47 +475,56 @@
             </div>
         </div>
 
-        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 20px;">
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 15px;">
             
-            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <h3 style="margin: 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                        <span style="background: var(--accent-gold); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">01</span>
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="margin: 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                        <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">01</span>
                         프로필 촬영 및 보도자료화
                     </h3>
                 </div>
-                <ul class="info-list" style="font-size: 13px;">
+                <ul class="info-list" style="font-size: 12px; line-height: 1.4;">
                     <li><strong>촬영 진행 및 자료 수급:</strong> 1월 기획안 기반 최종 촬영 완료</li>
                     <li><strong>미디어 배포 준비:</strong> 인터뷰 및 캐스팅 제안용 공식 최신 컷 정비</li>
                     <li><strong>보도자료화:</strong> 차기작 행보와 연결된 스토리텔링형 보도 소스 확보</li>
                 </ul>
             </div>
 
-            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 20px;">
-                <h3 style="margin: 0 0 15px 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-purple); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">02</span>
+            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-purple); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">02</span>
                     단독 팬미팅 기획 디벨롭
                 </h3>
                 <div style="display: flex; gap: 10px;">
-                    <div style="flex: 1; background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 10px; color: #999; margin-bottom: 5px;">STAGE</div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple);">기획 단계 돌입</div>
+                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
+                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">STAGE</div>
+                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">기획 단계 돌입</div>
                     </div>
-                    <div style="flex: 1; background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 10px; color: #999; margin-bottom: 5px;">ACTION</div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple);">업체 미팅 디벨롭</div>
+                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
+                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">ACTION</div>
+                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">업체 미팅 디벨롭</div>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 20px;">
-                <h3 style="margin: 0 0 15px 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-mint); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">03</span>
+            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-mint); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">03</span>
                     &lt;21세기 대군부인&gt; 홍보 프로모션
                 </h3>
-                <p style="font-size: 13px; color: #636e72; margin: 0; line-height: 1.6;">
-                    선정된 주요 방송 채널 및 유튜브, 라디오 출연용 <strong>콘텐츠 촬영 본격 진행</strong>. <br>
-                    작품 방영 전 기대감 고조를 위한 현장 비하인드 소스 수집 병행.
+                <p style="font-size: 12px; color: #636e72; margin: 0; line-height: 1.5;">
+                    주요 방송 및 뉴미디어 콘텐츠 촬영 본격 진행. 현장 비하인드 소스 수집 병행을 통한 기대감 고조.
+                </p>
+            </div>
+
+            <div style="background: #fff9f0; border: 1px solid #ffe8cc; border-radius: 15px; padding: 15px; border-left: 5px solid var(--accent-gold);">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">04</span>
+                    글로벌 브랜드 행사 전략
+                </h3>
+                <p style="font-size: 12px; color: #636e72; margin: 0; line-height: 1.5;">
+                    <strong>쇼파드(Chopard) 브랜드 행사 참석 추진:</strong> 하이엔드 쥬얼리/워치 브랜드와의 파트너십 강화를 위한 공식 행사 참여 및 글로벌 이미지 빌드업 조율 중.
                 </p>
             </div>
 
@@ -515,6 +532,8 @@
     </div>
     <div class="page-num">06. FEBRUARY DETAILS</div>
 </div>
+
+
 <div class="slide light" style="background-color: #f8fafb;">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-mint); display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px;">
         <div>
@@ -771,7 +790,7 @@
             </div>
             <div style="flex: 1; overflow-y: auto; padding-right: 5px;">
                 <ul style="margin: 0; padding: 0; list-style: none; font-size: 10px; color: #636e72; line-height: 1.65;">
-                    <li style="color: #2d3436; font-weight: 700; border-bottom: 1px solid #f0f0f0; margin-bottom: 4px; padding-bottom: 2px;">MBC FM4U / KBS</li>
+                    <li style="color: #2d3436; font-weight: 700; border-bottom: 1px solid #f0f0f0; margin-bottom: 4px; padding-bottom: 2px;">MBC FM 4U / KBS Cool FM + SBS 파워 FM</li>
                     <li>• 오늘 아침 윤상입니다</li>
                     <li>• 정오의 희망곡 김신영입니다</li>
                     <li>• 두시의 데이트 안영미입니다</li>
@@ -781,16 +800,15 @@
                     <li>• 효정의 볼륨을 높여요 (KBS)</li>
                     <li>• 이은지의 가요광장 (KBS)</li>
                     <li>• 한해의 키스 더 라디오 (KBS)</li>
-                    <li style="margin-top: 8px; color: #2d3436; font-weight: 700; border-bottom: 1px solid #f0f0f0; margin-bottom: 4px; padding-bottom: 2px;">SBS 파워 FM</li>
-                    <li>• 박하선의 씨네타운</li>
-                    <li>• 두시탈출 컬투쇼</li>
-                    <li>• 김영철의 파워FM</li>
-                    <li>• 최화정의 파워타임</li>
-                    <li>• 웬디의 영스트리트</li>
-                    <li>• 황제성의 황제파워</li>
-                    <li>• 12시엔 주현영</li>
-                    <li>• 배성재의 텐</li>
-                    <li>• 박소현의 러브게임</li>
+                    <li>• 박하선의 씨네타운 (SBS)</li>
+                    <li>• 두시탈출 컬투쇼 (SBS)</li>
+                    <li>• 김영철의 파워FM (SBS)</li>
+                    <li>• 최화정의 파워타임 (SBS)</li>
+                    <li>• 웬디의 영스트리트 (SBS)</li>
+                    <li>• 황제성의 황제파워 (SBS)</li>
+                    <li>• 12시엔 주현영 (SBS)</li>
+                    <li>• 배성재의 텐 (SBS)</li>
+                    <li>• 박소현의 러브게임 (SBS)</li>
                 </ul>
             </div>
         </div>
@@ -830,7 +848,7 @@
             <div style="padding: 22px; flex-grow: 1; overflow-y: auto;">
                 <div style="margin-bottom: 18px;">
                     <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple); margin-bottom: 8px;">[유튜브] 고감도 & 심도</div>
-                    <div style="font-size: 12px; color: #333; line-height: 1.9;">요정식탁 / 살롱드립 / 채널십오야<br>유인라디오 / <strong>셰프 안성재</strong> / 성시경_만날텐데<br><strong>VOGUE_마이백</strong> / <strong>GQ_에센셜</strong></div>
+                    <div style="font-size: 12px; color: #333; line-height: 1.9;"><strong>요정식탁</strong> / 살롱드립 / 채널십오야<br>유인라디오 / <strong>셰프 안성재</strong> / 성시경_만날텐데<br><strong>VOGUE_마이백</strong> / <strong>GQ_에센셜</strong></div>
                 </div>
                 <div style="margin-bottom: 18px;">
                     <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple); margin-bottom: 8px;">[방송] 차분한 인간미</div>
@@ -901,16 +919,16 @@
         </div>
     </div>
 
-    <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 15px; height: 530px;">
+    <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 12px; height: 550px;">
         
-        <div style="background: #fff; border-radius: 20px; padding: 22px; border: 1px solid #eee; display: flex; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
-            <div style="flex-shrink: 0; width: 65px; height: 65px; background: #2d3436; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px;">👨‍🍳</div>
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: #2d3436; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">👨‍🍳</div>
             <div style="flex: 1;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 19px; color: #2d3436; font-weight: 900;">유튜브 &lt;셰프 안성재&gt;</h3>
-                    <span style="font-size: 10px; color: #fff; background: #2d3436; padding: 3px 8px; border-radius: 5px; font-weight: 800;">구독자 34만+</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">유튜브 &lt;셰프 안성재&gt;</h3>
+                    <span style="font-size: 9px; color: #fff; background: #2d3436; padding: 2px 6px; border-radius: 5px; font-weight: 800;">34만+</span>
                 </div>
-                <p style="font-size: 13.5px; color: #555; line-height: 1.7; margin: 0; font-weight: 500;">
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
                     • <strong>'완벽주의'</strong> 키워드를 공유하는 장인의 만남<br>
                     • 자극적 토크 없이 <strong>묵직한 존재감</strong> 노출<br>
                     • 하이엔드 미식 컨셉 → <strong>고급스러운 이미지</strong> 직결
@@ -918,14 +936,14 @@
             </div>
         </div>
 
-        <div style="background: #fff; border-radius: 20px; padding: 22px; border: 1px solid #eee; display: flex; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
-            <div style="flex-shrink: 0; width: 65px; height: 65px; background: #00cec9; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px;">🎥</div>
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: #00cec9; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">🎥</div>
             <div style="flex: 1;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 19px; color: #2d3436; font-weight: 900;">MBC &lt;전참시&gt;</h3>
-                    <span style="font-size: 10px; color: #fff; background: #00cec9; padding: 3px 8px; border-radius: 5px; font-weight: 800;">시청률 5%대</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">MBC &lt;전참시&gt;</h3>
+                    <span style="font-size: 9px; color: #fff; background: #00cec9; padding: 2px 6px; border-radius: 5px; font-weight: 800;">시청률 5%대</span>
                 </div>
-                <p style="font-size: 13.5px; color: #555; line-height: 1.7; margin: 0; font-weight: 500;">
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
                     • 배우의 <strong>'일터'</strong>와 <strong>'자기관리'</strong>를 보여줄 최적 창구<br>
                     • 운동/영어/루틴 → <strong>지적인 갓생(God-생)</strong> 증명<br>
                     • 피지컬 자산을 <strong>대중적 화제성</strong>으로 치환하는 기획
@@ -933,14 +951,29 @@
             </div>
         </div>
 
-        <div style="background: #fff; border-radius: 20px; padding: 22px; border: 1px solid #eee; display: flex; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
-            <div style="flex-shrink: 0; width: 65px; height: 65px; background: #000; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px;">💎</div>
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center; border-left: 5px solid #ff7675;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: #ff7675; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">🧚‍♂️</div>
             <div style="flex: 1;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 19px; color: #2d3436; font-weight: 900;">VOGUE / GQ 디지털</h3>
-                    <span style="font-size: 10px; color: #fff; background: #000; padding: 3px 8px; border-radius: 5px; font-weight: 800;">조회수 100만+</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">유튜브 &lt;요정식탁&gt;</h3>
+                    <span style="font-size: 9px; color: #fff; background: #ff7675; padding: 2px 6px; border-radius: 5px; font-weight: 800;">69만+</span>
                 </div>
-                <p style="font-size: 13.5px; color: #555; line-height: 1.7; margin: 0; font-weight: 500;">
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
+                    • 가볍지 않은 <strong>진중한 대화</strong>로 신뢰감 있는 이미지 형성<br>
+                    • 단기 화제성보다 <strong>장기 팬 전환</strong>에 유리<br>
+                    • 자연스러운 인터뷰 무드 속 <strong>전략적 작품 홍보</strong> 수행
+                </p>
+            </div>
+        </div>
+
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: #000; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">💎</div>
+            <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">VOGUE / GQ 디지털</h3>
+                    <span style="font-size: 9px; color: #fff; background: #000; padding: 2px 6px; border-radius: 5px; font-weight: 800;">조회수 100만+</span>
+                </div>
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
                     • <strong>'취향'</strong>을 드러내는 고감도 마이 에센셜 콘텐츠<br>
                     • 세련된 라이프스타일을 <strong>시각적</strong>으로 완전 노출<br>
                     • <strong>광고주(패션/뷰티)</strong>가 가장 주목하는 핵심 매체
@@ -948,14 +981,14 @@
             </div>
         </div>
 
-        <div style="background: #fff; border-radius: 20px; padding: 22px; border: 1px solid #eee; display: flex; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
-            <div style="flex-shrink: 0; width: 65px; height: 65px; background: #c2a37d; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px;">☕</div>
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: #c2a37d; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">☕</div>
             <div style="flex: 1;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 19px; color: #2d3436; font-weight: 900;">RADIO &lt;완벽한 하루&gt;</h3>
-                    <span style="font-size: 10px; color: #fff; background: #c2a37d; padding: 3px 8px; border-radius: 5px; font-weight: 800;">청취율 상승</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">RADIO &lt;완벽한 하루 이상순입니다&gt;</h3>
+                    <span style="font-size: 9px; color: #fff; background: #c2a37d; padding: 2px 6px; border-radius: 5px; font-weight: 800;">이상순</span>
                 </div>
-                <p style="font-size: 13.5px; color: #555; line-height: 1.7; margin: 0; font-weight: 500;">
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
                     • 이상순 DJ와의 <strong>차분한 남성 시너지</strong> 형성<br>
                     • 무리한 개인기 없는 <strong>'힐링 & 담백'</strong> 토크 환경<br>
                     • 배우님의 <strong>중저음 보이스(Tone)</strong> 매력 극대화
@@ -963,38 +996,36 @@
             </div>
         </div>
 
-        <div style="background: #fff; border-radius: 20px; padding: 25px; border: 1px solid #eee; display: flex; gap: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); grid-column: span 2; align-items: center;">
-            <div style="flex-shrink: 0; width: 65px; height: 65px; background: var(--accent-purple); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px;">🌙</div>
-            <div style="flex: 1.5;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 22px; color: #2d3436; font-weight: 900;">MBC &lt;김이나의 별이 빛나는 밤에&gt;</h3>
-                    <span style="font-size: 10px; color: #fff; background: var(--accent-purple); padding: 3px 10px; border-radius: 5px; font-weight: 800;">심야 1위</span>
+        <div style="background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; display: flex; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); align-items: center;">
+            <div style="flex-shrink: 0; width: 60px; height: 60px; background: var(--accent-purple); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px;">🌙</div>
+            <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2d3436; font-weight: 900;">RADIO &lt;김이나의 별이 빛나는 밤에&gt;</h3>
+                    <span style="font-size: 9px; color: #fff; background: var(--accent-purple); padding: 2px 6px; border-radius: 5px; font-weight: 800;">김이나</span>
                 </div>
-                <p style="font-size: 14.5px; color: #555; line-height: 1.8; margin: 0; font-weight: 500;">
+                <p style="font-size: 12.5px; color: #555; line-height: 1.6; margin: 0; font-weight: 500;">
                     • <strong>언어의 온도</strong>가 깊은 패널과의 진솔한 가치관 공유<br>
-                    • 배우 노상현의 <strong>내면 세계와 연기 철학</strong>을 전달하는 창구<br>
-                    • 2030 여성 팬덤의 <strong>충성도 강화</strong> 및 코어 팬 확보 최적화
+                    • 배우 노상현의 <strong>내면 세계와 연기 철학</strong> 전달<br>
+                    • 2030 여성 팬덤의 <strong>충성도 강화</strong> 및 코어 팬 확보
                 </p>
-            </div>
-            <div style="flex: 0.7; background: #fdfbff; padding: 15px; border-radius: 15px; border: 1px dashed var(--accent-purple); text-align: center;">
-                <div style="font-size: 11px; color: var(--accent-purple); font-weight: 800; margin-bottom: 5px;">STRATEGIC VALUE</div>
-                <div style="font-size: 13px; color: #636e72; line-height: 1.5; font-weight: 700;">
-                    '결이 맞는 대화'를 통한<br>브랜드 이미지의 내실화
-                </div>
             </div>
         </div>
     </div>
+    
+    <div style="margin-top: 15px; background: #fdfbff; padding: 12px; border-radius: 15px; border: 1px dashed var(--accent-purple); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span style="font-size: 13px; color: #636e72; font-weight: 700;">STRATEGIC VALUE:</span>
+        <span style="font-size: 13px; color: #2d3436; font-weight: 600;">'결이 맞는 대화'를 통한 브랜드 이미지 내실화 및 실체적 팬덤 아카이빙</span>
+    </div>
+
     <div class="page-num" style="bottom: 25px;">11. STRATEGIC SELECTION DETAILS</div>
 </div>
-
-
 <div class="slide light">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple);">
         <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">03. MARCH</p>
         <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">STRATEGIC MOMENTUM</h1>
     </div>
 
-    <div style="margin-top: 30px; display: flex; gap: 30px; height: 520px;">
+    <div style="margin-top: 25px; display: flex; gap: 25px; height: 530px;">
         
         <div style="flex: 1; position: relative; border-radius: 20px; overflow: hidden; background: #f0f0f0; border: 1px solid #eee;">
             <img src="march_drama_shooting.png" alt="March Visual Asset" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1004,48 +1035,54 @@
             </div>
         </div>
 
-        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 20px;">
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 12px;">
             
-            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <h3 style="margin: 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                        <span style="background: var(--accent-gold); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">01</span>
-                        드라마 홍보 본격 가동
-                    </h3>
-                </div>
-                <ul class="info-list" style="font-size: 13px; line-height: 1.7; color: #636e72;">
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">01</span>
+                    드라마 홍보 본격 가동
+                </h3>
+                <ul class="info-list" style="font-size: 12.5px; line-height: 1.5; color: #636e72; margin: 0; padding-left: 15px;">
                     <li><strong>콘텐츠 릴리즈:</strong> 촬영 완료된 주요 채널(유튜브/방송) 영상 순차 공개</li>
                     <li><strong>PR 이슈화:</strong> 캐릭터 싱크로율 및 비주얼 리셋 관련 집중 보도</li>
                     <li><strong>숏폼 바이럴:</strong> 드라마 메이킹 및 캐릭터 무드 기반의 고감도 숏폼 배포</li>
                 </ul>
             </div>
 
-            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 20px;">
-                <h3 style="margin: 0 0 15px 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-purple); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">02</span>
+            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-purple); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">02</span>
                     단독 팬미팅 컨셉 확정
                 </h3>
                 <div style="display: flex; gap: 10px;">
-                    <div style="flex: 1; background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 10px; color: #999; margin-bottom: 5px;">CONCEPT</div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple);">스토리텔링 기획</div>
+                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
+                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">CONCEPT</div>
+                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">스토리텔링 기획</div>
                     </div>
-                    <div style="flex: 1; background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 10px; color: #999; margin-bottom: 5px;">MERCH</div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--accent-purple);">굿즈 라인업 1차</div>
+                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
+                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">MERCH</div>
+                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">굿즈 라인업 1차</div>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 20px;">
-                <h3 style="margin: 0 0 15px 0; color: #2d3436; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-mint); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">03</span>
+            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-mint); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">03</span>
                     포토이즘(Photoism) 협업 기획
                 </h3>
-                <p style="font-size: 13px; color: #636e72; margin: 0; line-height: 1.6;">
-                    드라마 속 <strong>'총리' 컨셉</strong>을 활용한 스페셜 아티스트 프레임 기획. <br>
-                    국내외 매장 동시 오픈을 통한 글로벌 팬덤의 자발적 인증 및 확산 유도. <br>
-                    <strong>비하인드 컷 활용:</strong> 팬 소장 가치를 높인 미공개 컷 프레임 배치.
+                <p style="font-size: 12.5px; color: #636e72; margin: 0; line-height: 1.5;">
+                    드라마 속 <strong>'총리' 컨셉</strong>을 활용한 스페셜 아티스트 프레임 기획. 국내외 매장 인증 및 확산 유도. <strong>비하인드 컷 활용</strong> 배치.
+                </p>
+            </div>
+
+            <div style="background: #fdfcf9; border: 1px solid #e9e4d9; border-radius: 15px; padding: 15px; border-left: 5px solid var(--accent-gold);">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 18px;">⌚</span>
+                    하이엔드 브랜드 앰버서더 활동
+                </h3>
+                <p style="font-size: 12.5px; color: #636e72; margin: 0; line-height: 1.5;">
+                    <strong>론진(Longines) 시계 행사 참여:</strong> 브랜드 앰버서더로서 공식 행사 참석 및 미디어 노출 추진 (현재 조율 중). 글로벌 럭셔리 이미지 강화.
                 </p>
             </div>
 
@@ -1053,77 +1090,138 @@
     </div>
     <div class="page-num">12. MARCH DETAILS</div>
 </div>
+
 <div class="slide light">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-mint);">
-        <p style="color: var(--accent-mint); font-weight: 800; margin: 0; letter-spacing: 2px;">04. APRIL - 06. JUNE</p>
-        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">MASSIVE EXPANSION & FAN-ENGAGEMENT</h1>
+        <p style="color: var(--accent-mint); font-weight: 800; margin: 0; letter-spacing: 2px;">04. APRIL - 05. MAY</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">MASSIVE EXPANSION & STRATEGIC MEDIA</h1>
     </div>
 
     <div style="margin-top: 30px; display: flex; gap: 30px; height: 520px;">
         
         <div style="flex: 1; position: relative; border-radius: 20px; overflow: hidden; background: #2d3436; border: 1px solid #eee;">
-            <img src="drama_on_air_visual.png" alt="April-June Visual Asset" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+            <img src="drama_on_air_visual.png" alt="April-May Visual Asset" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
             <div style="position: absolute; bottom: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 30px 20px; color: #fff;">
-                <div style="font-size: 11px; font-weight: 700; color: var(--accent-mint); margin-bottom: 5px;">ON-AIR PERIOD</div>
-                <div style="font-size: 18px; font-weight: 800;">&lt;21세기 대군부인&gt; GLOBAL WAVE</div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--accent-mint); margin-bottom: 5px;">ON-AIR & ROUNDING</div>
+                <div style="font-size: 18px; font-weight: 800;">&lt;21세기 대군부인&gt; IMPACT & ARCHIVING</div>
             </div>
         </div>
 
-        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 15px;">
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 12px;">
             
-            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                        <span style="background: var(--accent-gold); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">01</span>
-                        드라마 홍보 및 바이럴 극대화
-                    </h3>
-                </div>
-                <ul style="margin: 0; padding-left: 15px; font-size: 12.5px; line-height: 1.6; color: #636e72;">
-                    <li><strong>보도자료:</strong> 리뷰/캐릭터/명장면 보도자료 주 1-2회 릴리즈</li>
-                    <li><strong>바이럴:</strong> 공식/바이럴 계정을 통한 핵심 씬(Scene) 확산</li>
-                    <li><strong>자체 콘텐츠:</strong> 현장/포스터 비하인드 & 증명사진 컨셉 공개</li>
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">01</span>
+                    드라마 홍보 및 바이럴 극대화
+                </h3>
+                <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.5; color: #636e72;">
+                    <li><strong>자체 바이럴 채널 확보:</strong> 통제 가능한 채널을 통한 전략적 여론 형성</li>
+                    <li><strong>명장면/리뷰 릴리즈:</strong> 주 1-2회 핵심 씬 확산을 통한 화제성 유지</li>
                 </ul>
             </div>
 
-            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 18px;">
-                <h3 style="margin: 0 0 12px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-purple); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">02</span>
-                    인터랙티브 팬 프로모션
+            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-purple); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">02</span>
+                    디지털 매체 전략적 MOU 체결
                 </h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                    <div style="background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #f0f0f0; font-size: 11.5px; color: #555;">
-                        <strong>[시청 독려 이벤트]</strong><br>폴라로이드 / 친필 사인 포스터
-                    </div>
-                    <div style="background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #f0f0f0; font-size: 11.5px; color: #555;">
-                        <strong>[스페셜 리워드]</strong><br>야구 유니폼 사인본 증정
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 18px;">
-                <h3 style="margin: 0 0 12px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-mint); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">03</span>
-                    6월 단독 팬미팅 Final Prep
-                </h3>
-                <p style="font-size: 12.5px; color: #636e72; margin: 0; line-height: 1.6;">
-                    <strong>비주얼 자산:</strong> 팬미팅 공식 포스터 및 MD용 화보 촬영 진행 <br>
-                    <strong>운영 고도화:</strong> 큐시트, 내부 구성안 최종 체크 및 리허설 <br>
-                    <strong>글로벌 타겟:</strong> 해외 팬덤 유입을 위한 다국어 예매 가이드 배포
+                <p style="font-size: 12px; color: #636e72; margin: 0; line-height: 1.5;">
+                    • <strong>페페 / 아이즈매거진 / 데페뉴</strong> 등 트렌디 디지털 매체 협업<br>
+                    • 비하인드 독점 사진/영상 노출로 고감도 바이럴 증대<br>
+                    • 안정적 채널 확보를 통한 비용 효율성 및 노출 신뢰도 극대화
                 </p>
             </div>
 
-            <div style="margin-top: auto; background: #2d3436; padding: 12px 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
-                <div style="font-size: 18px;">🚀</div>
-                <div style="font-size: 11.5px; color: #fff; font-weight: 500; line-height: 1.4;">
-                    드라마의 폭발적 화제성을 <strong>실체적 팬덤 데이터(티켓 구매 및 참여)</strong>로 전환하여 <br>
-                    배우 노상현의 글로벌 시장 가치를 입증하는 핵심 분기점입니다.
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">03</span>
+                    인터랙티브 팬 프로모션
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div style="background: #f8f9fa; padding: 8px; border-radius: 8px; font-size: 11px; color: #555;">[시청 독려] 폴라로이드 / 사인 포스터</div>
+                    <div style="background: #f8f9fa; padding: 8px; border-radius: 8px; font-size: 11px; color: #555;">[스페셜] 야구 유니폼 사인본 증정</div>
                 </div>
+            </div>
+
+            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
+                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-mint); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">04</span>
+                    매체 라운딩 인터뷰 (5월)
+                </h3>
+                <p style="font-size: 12px; color: #636e72; margin: 0; line-height: 1.5;">
+                    • <strong>최대 15~20개 매체:</strong> 작품 평가를 배우의 연기관으로 초점 이동<br>
+                    • <strong>커리어 아카이빙:</strong> 단발성 홍보를 넘어선 고퀄리티 인터뷰 자산 확보<br>
+                    • 전문성 강화를 통한 신뢰도 높은 아티스트 이미지 구축
+                </p>
             </div>
 
         </div>
     </div>
-    <div class="page-num">14. APRIL-JUNE DETAILS</div>
+    <div class="page-num">14. APRIL-MAY DETAILS</div>
 </div>
+<div class="slide light">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple);">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">06. JUNE</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">1st DOMESTIC FAN-MEETING</h1>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; gap: 30px; height: 520px;">
+        
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+            <div style="flex: 1.5; position: relative; border-radius: 20px; overflow: hidden; background: #fdfbff; border: 1px solid #eee;">
+                <img src="fan_meeting_main.png" alt="June Fan-meeting Visual" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 20px; left: 20px; background: var(--accent-purple); color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 12px; font-weight: 700;">JUNE SPECIAL</div>
+            </div>
+            <div style="flex: 1; background: #2d3436; border-radius: 20px; padding: 25px; color: #fff; display: flex; flex-direction: column; justify-content: center;">
+                <h4 style="margin: 0 0 10px 0; color: var(--accent-purple); font-size: 18px;">"From Online to Offline"</h4>
+                <p style="font-size: 13px; line-height: 1.6; color: #b2bec3; margin: 0;">
+                    단순한 행사를 넘어, 배우와 팬이 직접 마주하는 <br><strong>'실체적 관계'</strong>를 형성하여 이탈률 제로의 <br>코어 팬덤을 구축하는 핵심 분기점입니다.
+                </p>
+            </div>
+        </div>
+
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 20px;">
+            
+            <div style="background: #fff; border-radius: 15px; border: 1px solid #eee; padding: 20px; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.05);">
+                <div style="color: var(--accent-purple); font-weight: 800; font-size: 13px; margin-bottom: 10px;">STRATEGY 01.</div>
+                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #2d3436;">핵심 팬층 결집 & 충성도 극대화</h3>
+                <ul style="margin: 0; padding-left: 15px; font-size: 13px; line-height: 1.6; color: #636e72;">
+                    <li><strong>인식의 변화:</strong> ‘응원하는 배우’ → ‘직접 만난 배우’</li>
+                    <li><strong>관계의 전환:</strong> 온라인 소통에서 오프라인 유대감으로 격상</li>
+                    <li><strong>결과:</strong> 이탈률 낮은 강력한 락인(Lock-in) 효과 발생</li>
+                </ul>
+            </div>
+
+            <div style="background: #fff; border-radius: 15px; border: 1px solid #eee; padding: 20px; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.05);">
+                <div style="color: var(--accent-purple); font-weight: 800; font-size: 13px; margin-bottom: 10px;">STRATEGY 02.</div>
+                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #2d3436;">이미지 관리가 가능한 소통 채널</h3>
+                <ul style="margin: 0; padding-left: 15px; font-size: 13px; line-height: 1.6; color: #636e72;">
+                    <li><strong>브랜딩 통제:</strong> 방송/인터뷰보다 정교한 톤·연출 컨트롤</li>
+                    <li><strong>진정성 전달:</strong> 배우의 실제 성격과 매력을 가감 없이 노출</li>
+                    <li><strong>결과:</strong> 호감도 및 아티스트 신뢰도의 비약적 상승</li>
+                </ul>
+            </div>
+
+            <div style="background: #fdfbff; border-radius: 15px; border: 1px dashed var(--accent-purple); padding: 20px;">
+                <div style="color: var(--accent-purple); font-weight: 800; font-size: 13px; margin-bottom: 10px;">STRATEGY 03.</div>
+                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #2d3436;">향후 확장 전략의 기준점 확보</h3>
+                <ul style="margin: 0; padding-left: 15px; font-size: 13px; line-height: 1.6; color: #636e72;">
+                    <li><strong>실데이터 확보:</strong> 팬 규모·연령대·반응도 분석 지표 수집</li>
+                    <li><strong>BM 사전 검증:</strong> 굿즈 판매 및 IP 확장 전략의 가이드라인 수립</li>
+                    <li><strong>글로벌 교두보:</strong> 국내 성과를 바탕으로 해외 투어 규모 확정</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="page-num">15. JUNE FAN-MEETING DETAILS</div>
+</div>
+
+
+
+
+
+
 <div class="slide light">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple);">
         <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">07. JULY - 10. OCTOBER</p>
@@ -1327,6 +1425,100 @@
         </div>
     </div>
     <div class="page-num">17. DECEMBER DETAILS</div>
+</div>
+<div class="slide light" style="background-color: #fffafb;">
+    <div class="header" style="text-align: left; border-bottom: 2px solid #e74c3c;">
+        <p style="color: #e74c3c; font-weight: 800; margin: 0; letter-spacing: 2px;">POST-DECEMBER / RISK MANAGEMENT</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">STRATEGIC CONTINUITY & DEFENSE</h1>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 15px; color: #333; font-weight: 500;">
+        "글로벌 성과가 자산화되는 시점, <strong>매니지먼트의 공백은 단순한 휴식이 아닌 '브랜드 가치의 급격한 침식'</strong>으로 이어집니다."
+    </p>
+
+    <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; height: 480px;">
+        
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">01</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">공백 리스크 (파이프라인 단절)</h3>
+            </div>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>캐스팅·광고·해외 일정 연결 고리 급격한 약화</li>
+                <li>네트워크 기반 차기작 제안 및 추천 프로세스 중단</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 프로젝트 실행 속도의 심각한 저하</li>
+            </ul>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">02</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">관리·조율 공백 리스크</h3>
+            </div>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>전환기 내 커뮤니케이션 오류 및 조건 협상력 약화</li>
+                <li>일정 관리 혼선으로 인한 대외 신뢰도 하락 우려</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 모든 혼선이 배우 개인 리스크로 직결</li>
+            </ul>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">03</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">브랜드·광고 연속성 리스크</h3>
+            </div>
+            <p style="font-size: 11px; color: #e74c3c; font-weight: 700; margin: 0 0 8px 15px;">"브랜드는 관리 안정성을 최우선으로 고려"</p>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>계약 공백기 발생 시 재계약 논의 무기한 보류</li>
+                <li>신규 캠페인 후보군에서 우선 제외 가능성 상승</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 하이엔드·장기 모델 유지에 치명적</li>
+            </ul>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">04</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">해외 업무·권리 관리 리스크</h3>
+            </div>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>해외 에이전트·플랫폼 협업 법무/정산 공백 발생</li>
+                <li>기존 구축된 글로벌 네트워크와의 채널 단절</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 네트워크 재연결 시 막대한 시간·비용 소요</li>
+            </ul>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">05</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">메시지 컨트롤 상실 리스크</h3>
+            </div>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>루머 대응 및 입장 표명이 개인적 판단에 의존</li>
+                <li>작은 발언도 가이드라인 없이 과도하게 해석될 위험</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 아티스트 고유 이미지의 왜곡 발생</li>
+            </ul>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #fbdad0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="background: #e74c3c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">06</span>
+                <h3 style="margin: 0; font-size: 16px; color: #2d3436;">내부 자료·자산 단절</h3>
+            </div>
+            <ul style="margin: 0; padding-left: 15px; font-size: 12px; line-height: 1.6; color: #636e72;">
+                <li>해외 세일즈 자료 및 미공개 레퍼런스 활용 불가</li>
+                <li>인맥 기반의 제안 히스토리 및 데이터 증발</li>
+                <li style="color: #e74c3c; font-weight: 600; list-style: none; margin-top: 5px;">→ 모든 자산을 초기부터 다시 구축해야 하는 부담</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 20px; background: #2d3436; border-radius: 12px; padding: 12px 25px; display: flex; justify-content: center; align-items: center;">
+        <p style="margin: 0; color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.5px;">
+            <span style="color: #f1c40f;">Conclusion:</span> 안정적인 시스템 지원만이 폭발적 성과를 장기적인 '커리어 자산'으로 치환할 수 있습니다.
+        </p>
+    </div>
+    <div class="page-num">18. RISK MANAGEMENT & CONTINUITY</div>
 </div>
 </body>
 </html>

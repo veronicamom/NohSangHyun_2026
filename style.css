@@ -150,3 +150,24 @@ th, .category { background-color: #0a0a0a; color: var(--text-silver); font-weigh
         white-space: nowrap; /* 글자 줄바꿈 방지 */
     }
 }
+/* 워터마크 모바일 최적화 */
+@media (max-width: 768px) {
+    .slide::after {
+        font-size: 2rem;
+        transform: translate(-50%, -50%) rotate(-30deg);
+    }
+    
+    /* 1페이지 메인 타이틀 크기 조절 */
+    .slide.light h1 {
+        font-size: 40px !important;
+    }
+}
+
+/* 간트차트 영역 스크롤바 디자인 (세련되게) */
+table::-webkit-scrollbar {
+    height: 4px;
+}
+table::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 10px;
+}
