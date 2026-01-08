@@ -63,7 +63,7 @@
             // 예: 1월 8일 오전 11시 접속 시 비번은 "14120811"
             var dynamicPassword = "1412" + day + hour;
 
-            var userInput = prompt("관리자에게 부여받은 '현재 시간' 비밀번호를 입력하세요:", "");
+            var userInput = prompt("관리자에게 부여받은 비밀번호를 입력하세요:", "");
             
             if (!userInput || userInput.trim() !== dynamicPassword) {
                 alert("비밀번호가 올바르지 않거나 만료되었습니다. (현재 시간 기준 갱신)");
