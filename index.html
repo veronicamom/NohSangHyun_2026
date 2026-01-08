@@ -5,78 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>배우 노상현 2026 로드맵 - CONFIDENTIAL</title>
     <link rel="stylesheet" href="style.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    
-    <style>
-        /* 초기 화면 숨김 (비번 확인 전까지) */
-        html { display: none; }
         
-        /* 텍스트 드래그 및 선택 방지 */
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-color: #000;
-        }
-
-        /* 이미지 우클릭 및 저장 방지 */
-        img {
-            -webkit-touch-callout: none;
-            pointer-events: none;
-        }
-
-        /* 프린트 및 PDF 저장 시 내용 숨김 */
-        @media print {
-            body { display: none !important; }
-        }
-
-        /* 워터마크 (Confidential) */
-        .slide::after {
-            content: "CONFIDENTIAL / NOH SANG HYUN 2026";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 4rem;
-            color: rgba(128, 128, 128, 0.08);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 9999;
-        }
+    <style>
     </style>
 </head>
 <body>
-    <script>
-        (function() {
-            // 1. KST 시간 계산 최적화
-            const now = new Date();
-            const kstOffset = 9 * 60 * 60 * 1000;
-            const kstDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + kstOffset);
-
-            const day = String(kstDate.getDate()).padStart(2, '0');
-            const hour = String(kstDate.getHours()).padStart(2, '0');
-            const dynamicPassword = "1412" + day + hour;
-
-            // 2. 입력 프로세스
-            const userInput = prompt("CONFIDENTIAL: 관리자 비밀번호를 입력하십시오.");
-            
-            if (userInput === dynamicPassword) {
-                // 인증 성공 시에만 body를 보여줌
-                window.addEventListener('DOMContentLoaded', () => {
-                    document.body.style.visibility = "visible";
-                    document.documentElement.style.display = "block";
-                });
-            } else {
-                alert("접근 권한이 없거나 비밀번호가 만료되었습니다.");
-                location.replace("about:blank");
-            }
-
-            // 3. 우클릭 방지 유지 + 알림 추가 (선택사항)
-            document.addEventListener('contextmenu', e => e.preventDefault());
-        })();
-    </script>
     <div class="slide light" style="justify-content: center; align-items: center; text-align: center;">
         <div style="width: 80px; height: 4px; background: var(--accent-purple); margin-bottom: 40px;"></div>
         <div class="header" style="border: none; margin-bottom: 0;">
@@ -1019,76 +952,194 @@
 
     <div class="page-num" style="bottom: 25px;">11. STRATEGIC SELECTION DETAILS</div>
 </div>
-<div class="slide light">
-    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple);">
-        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">03. MARCH</p>
-        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">STRATEGIC MOMENTUM</h1>
+<div class="slide light" style="background-color: #f9fbfb;">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px;">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">03. MARCH / CORE STRATEGY</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">STRATEGIC MOMENTUM: DRAMA & BRAND</h1>
     </div>
 
-    <div style="margin-top: 25px; display: flex; gap: 25px; height: 530px;">
+    <div style="margin-top: 25px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 25px; height: 530px;">
         
-        <div style="flex: 1; position: relative; border-radius: 20px; overflow: hidden; background: #f0f0f0; border: 1px solid #eee;">
-            <img src="march_drama_shooting.png" alt="March Visual Asset" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; bottom: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 30px 20px; color: #fff;">
-                <div style="font-size: 11px; font-weight: 700; opacity: 0.8; margin-bottom: 5px;">DRAMA PROMOTION</div>
-                <div style="font-size: 18px; font-weight: 800;">&lt;21세기 대군부인&gt; PRE-RELEASE</div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); flex: 1; display: flex; flex-direction: column;">
+                <h3 style="margin: 0 0 20px 0; font-size: 20px; color: #2d3436; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-mint); color: #fff; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">📺</span>
+                    01. 드라마 홍보 본격 가동
+                </h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                        <strong style="font-size: 15px; color: #2d3436; display: block; margin-bottom: 5px;">콘텐츠 릴리즈 (Major Channels)</strong>
+                        <p style="font-size: 12.5px; color: #636e72; line-height: 1.6; margin: 0;">
+                            기촬영된 메이저 유튜브(살롱드립 등) 및 방송 영상의 전략적 순차 공개. 방영 직전 대중 인지도를 정점으로 끌어올리는 화력 집중기.
+                        </p>
+                    </div>
+                    <div>
+                        <strong style="font-size: 15px; color: #2d3436; display: block; margin-bottom: 5px;">PR 이슈화 (Visual Reset)</strong>
+                        <p style="font-size: 12.5px; color: #636e72; line-height: 1.6; margin: 0;">
+                            극 중 '총리' 캐릭터와 배우 노상현의 완벽한 피지컬 매칭 강조. 캐릭터 싱크로율 관련 집중 보도를 통해 '수트핏 장인' 프레임 선점.
+                        </p>
+                    </div>
+                    <div>
+                        <strong style="font-size: 15px; color: #2d3436; display: block; margin-bottom: 5px;">숏폼 바이럴 (Digital Wave)</strong>
+                        <p style="font-size: 12.5px; color: #636e72; line-height: 1.6; margin: 0;">
+                            미공개 메이킹 자산 및 캐릭터 무드 기반의 고감도 숏폼 제작. 인스타그램 릴스 및 틱톡 내 '챌린지/바이럴' 요소 삽입.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding-top: 20px; border-top: 1px dashed #ddd;">
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 30px; height: 30px; margin-bottom: 8px;">
+                        <div style="font-size: 11px; font-weight: 800; color: #ff0050;">TikTok</div>
+                        <p style="font-size: 10px; color: #777; margin-top: 4px;">수트핏 챌린지<br>& 숏폼 바이럴</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 30px; height: 30px; margin-bottom: 8px;">
+                        <div style="font-size: 11px; font-weight: 800; color: #e1306c;">Instagram</div>
+                        <p style="font-size: 10px; color: #777; margin-top: 4px;">현장 비하인드<br>& 고감도 화보</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width: 30px; height: 30px; margin-bottom: 8px;">
+                        <div style="font-size: 11px; font-weight: 800; color: #ff0000;">YouTube</div>
+                        <p style="font-size: 10px; color: #777; margin-top: 4px;">메이킹 필름<br>& 토크쇼 릴리즈</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Naver_Logotype.svg" style="width: 30px; height: 30px; margin-bottom: 8px; object-fit: contain;">
+                        <div style="font-size: 11px; font-weight: 800; color: #03c75a;">Naver</div>
+                        <p style="font-size: 10px; color: #777; margin-top: 4px;">단독 인터뷰<br>& 브랜드 검색</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 12px;">
-            
-            <div style="background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">01</span>
-                    드라마 홍보 본격 가동
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 20px; padding: 22px;">
+                <h3 style="margin: 0 0 15px 0; font-size: 18px; color: #2d3436; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: var(--accent-purple); color: #fff; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px;">🎫</span>
+                    02. 단독 팬미팅 컨셉 확정
                 </h3>
-                <ul class="info-list" style="font-size: 12.5px; line-height: 1.5; color: #636e72; margin: 0; padding-left: 15px;">
-                    <li><strong>콘텐츠 릴리즈:</strong> 촬영 완료된 주요 채널(유튜브/방송) 영상 순차 공개</li>
-                    <li><strong>PR 이슈화:</strong> 캐릭터 싱크로율 및 비주얼 리셋 관련 집중 보도</li>
-                    <li><strong>숏폼 바이럴:</strong> 드라마 메이킹 및 캐릭터 무드 기반의 고감도 숏폼 배포</li>
-                </ul>
-            </div>
-
-            <div style="background: #fdfbff; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
-                <h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-purple); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">02</span>
-                    단독 팬미팅 컨셉 확정
-                </h3>
-                <div style="display: flex; gap: 10px;">
-                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">CONCEPT</div>
-                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">스토리텔링 기획</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #f0f0f0;">
+                        <div style="font-size: 10px; color: #999; margin-bottom: 5px; font-weight: 700;">STORYTELLING</div>
+                        <div style="font-size: 14px; font-weight: 800; color: var(--accent-purple);">스토리텔링 기획</div>
                     </div>
-                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #f0f0f0; text-align: center;">
-                        <div style="font-size: 9px; color: #999; margin-bottom: 3px;">MERCH</div>
-                        <div style="font-size: 12px; font-weight: 800; color: var(--accent-purple);">굿즈 라인업 1차</div>
+                    <div style="background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #f0f0f0;">
+                        <div style="font-size: 10px; color: #999; margin-bottom: 5px; font-weight: 700;">OFFICIAL MERCH</div>
+                        <div style="font-size: 14px; font-weight: 800; color: var(--accent-purple);">굿즈 라인업 1차</div>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #f0fdfc; border: 1px solid #eee; border-radius: 15px; padding: 15px;">
-                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="background: var(--accent-mint); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px;">03</span>
-                    포토이즘(Photoism) 협업 기획
-                </h3>
-                <p style="font-size: 12.5px; color: #636e72; margin: 0; line-height: 1.5;">
-                    드라마 속 <strong>'총리' 컨셉</strong>을 활용한 스페셜 아티스트 프레임 기획. 국내외 매장 인증 및 확산 유도. <strong>비하인드 컷 활용</strong> 배치.
-                </p>
+<div style="background: #2d3436; border-radius: 20px; padding: 22px; color: #fff; flex: 1; position: relative; overflow: hidden; border: 1px solid #3d4446;">
+                <div style="font-size: 11px; color: var(--accent-gold); font-weight: 800; margin-bottom: 12px; letter-spacing: 1px;">⌚ BRAND AMBASSADORSHIP</div>
+                <h3 style="margin: 0 0 10px 0; font-size: 20px; color: var(--accent-gold); display: flex; align-items: center; gap: 10px;">론진(Longines) 파트너십</h3>
+                
+                <ul style="margin: 15px 0 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                    <li style="display: flex; gap: 10px; font-size: 13px; line-height: 1.6;">
+                        <span style="color: var(--accent-gold);">●</span>
+                        <span><strong>공식 행사 참석 추진:</strong> 브랜드 지사 런칭 행사 및 포토콜 참석을 통한 하이엔드 이미지 각인 (조율 중)</span>
+                    </li>
+                    <li style="display: flex; gap: 10px; font-size: 13px; line-height: 1.6;">
+                        <span style="color: var(--accent-gold);">●</span>
+                        <span><strong>미디어 노출 시너지:</strong> 패션 매거진과 연계한 '브랜드 엠버서더' 뉴스 릴리즈 및 고화질 자산 확보</span>
+                    </li>
+                    <li style="display: flex; gap: 10px; font-size: 13px; line-height: 1.6;">
+                        <span style="color: var(--accent-gold);">●</span>
+                        <span><strong>프리미엄 포지셔닝:</strong> 글로벌 럭셔리 워치 브랜드와의 결합을 통한 '배우 브랜드 가치'의 동반 상승</span>
+                    </li>
+                </ul>
             </div>
-
-            <div style="background: #fdfcf9; border: 1px solid #e9e4d9; border-radius: 15px; padding: 15px; border-left: 5px solid var(--accent-gold);">
-                <h3 style="margin: 0 0 8px 0; color: #2d3436; font-size: 17px; display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 18px;">⌚</span>
-                    하이엔드 브랜드 앰버서더 활동
-                </h3>
-                <p style="font-size: 12.5px; color: #636e72; margin: 0; line-height: 1.5;">
-                    <strong>론진(Longines) 시계 행사 참여:</strong> 브랜드 앰버서더로서 공식 행사 참석 및 미디어 노출 추진 (현재 조율 중). 글로벌 럭셔리 이미지 강화.
-                </p>
-            </div>
-
         </div>
     </div>
-    <div class="page-num">12. MARCH DETAILS</div>
+    <div class="page-num" style="bottom: 20px;">12. MARCH STRATEGY DETAILS</div>
+</div>
+<div class="slide light" style="background-color: #fdfbff; overflow: hidden;">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px;">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">03. MARCH / FANDOM INTERACTION</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">PHOTOISM ARTIST FRAME STRATEGY</h1>
+    </div>
+
+    <div style="margin-top: 25px; display: flex; gap: 30px; height: 530px;">
+        
+        <div style="flex: 1.1; display: flex; flex-direction: column; gap: 12px; height: 100%;">
+            <div style="font-size: 13px; font-weight: 800; color: #2d3436; display: flex; align-items: center; gap: 8px;">
+                <span style="background: #000; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 10px;">MARKET TREND</span> 
+                주요 남자 배우 협업 사례 및 레퍼런스
+            </div>
+            
+            <div style="display: flex; gap: 10px; flex: 1; min-height: 250px;">
+                <div style="flex: 1; background: #eee; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #ddd;">
+                    <img src="ref_poster_byeon.png" alt="박보검 레퍼런스" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: #fff; font-size: 10px; padding: 5px; text-align: center;">박보검 '팬미팅' 프레임 사례</div>
+                </div>
+                <div style="flex: 1; background: #eee; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #ddd;">
+                    <img src="ref_poster_cha.png" alt="추영우 레퍼런스" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: #fff; font-size: 10px; padding: 5px; text-align: center;">추영우 '옥씨부인전' 방영 이후 사례</div>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; border-radius: 15px; padding: 20px; border: 1px solid #eee;">
+                <h4 style="margin: 0 0 10px 0; font-size: 14px; color: #2d3436; display: flex; align-items: center; gap: 8px;">💡 핵심 성공 요인 분석</h4>
+                <ul style="margin: 0; padding-left: 20px; font-size: 12px; color: #636e72; line-height: 1.8;">
+                    <li><strong>체험형 콘텐츠:</strong> 단순 관람을 넘어 배우와 '함께' 하는 가상 경험 제공</li>
+                    <li><strong>한정성(Scarcity):</strong> 2~4주 한정 운영으로 팬덤의 즉각적인 오프라인 방문 유도</li>
+                    <li><strong>글로벌 바이럴:</strong> 해외 지점 동시 오픈으로 글로벌 팬덤의 자발적 인증샷 확산</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 15px; height: 100%;">
+            <div style="font-size: 13px; font-weight: 800; color: #2d3436; display: flex; align-items: center; gap: 8px;">
+                <span style="background: var(--accent-purple); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 10px;">PROPOSAL</span> 
+                STRATEGIC ACTION PLAN
+            </div>
+
+            <div style="flex: 1; background: #fff; border: 1px solid #eee; border-radius: 20px; padding: 22px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                <div style="margin-bottom: 15px;">
+                    <strong style="display: block; font-size: 14px; color: var(--accent-purple); margin-bottom: 5px;">01. 컨셉 다각화</strong>
+                    <p style="font-size: 11.5px; color: #555; line-height: 1.5; margin: 0;">드라마 '총리' 캐릭터의 수트 프레임과 배우 본연의 부드러운 일상 무드 믹스</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong style="display: block; font-size: 14px; color: var(--accent-purple); margin-bottom: 5px;">02. 디지털 연동</strong>
+                    <p style="font-size: 11.5px; color: #555; line-height: 1.5; margin: 0;">공식 인스타그램(@photoism.kr) 공지 및 배우 개인 SNS 인증샷 릴리즈</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong style="display: block; font-size: 14px; color: var(--accent-purple); margin-bottom: 8px;">03. 글로벌 화력 집중</strong>
+                    <p style="font-size: 11.5px; color: #555; line-height: 1.5; margin: 0;">국내 및 일본, 대만 등 글로벌 주요 거점 동시 런칭으로 글로벌 팬덤 실체 확인</p>
+                </div>
+
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; border: 1px solid #eee; margin-top: 10px;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 12px; color: #2d3436; font-weight: 800;">💡 바이럴 유입 구조</h4>
+                    <div style="display: flex; gap: 10px; align-items: center; justify-content: center;">
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 18px;">
+                            <span style="font-size: 9px; color: #555; white-space: nowrap;">인스타 파급력</span>
+                        </div>
+                        <span style="color: #ccc; font-size: 10px;">▶</span>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 18px;">
+                            <span style="font-size: 9px; color: #555; white-space: nowrap;">숏폼 / 짤 파급력</span>
+                        </div>
+                        <span style="color: #ccc; font-size: 10px;">▶</span>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Naver_Logotype.svg" style="width: 18px;">
+                            <span style="font-size: 9px; color: #555; white-space: nowrap;">방문 후기 바이럴</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--accent-purple); border-radius: 20px; padding: 22px; color: #fff;">
+                <h4 style="margin: 0 0 10px 0; font-size: 16px; color: #fff; font-weight: 800;">가상 체험을 통한 팬덤 자산화</h4>
+                <p style="font-size: 12.5px; line-height: 1.6; opacity: 0.95; margin: 0; font-weight: 500;">
+                    온라인 팔로워를 넘어 <strong>'실제로 매장을 방문하는 행동력'</strong>을 유도합니다. 이는 드라마 방영기 브랜드 지수를 높이고, 향후 팬미팅 및 굿즈 판매의 핵심 척도가 되는 <strong>실체적 데이터</strong>를 확보하는 계기가 됩니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-num" style="bottom: 20px;">14. PHOTOISM INTERACTIVE STRATEGY</div>
 </div>
 
 <div class="slide light">
@@ -1159,6 +1210,205 @@
     </div>
     <div class="page-num">14. APRIL-MAY DETAILS</div>
 </div>
+
+<div class="slide light">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-mint); padding-bottom: 10px;">
+        <p style="color: var(--accent-mint); font-weight: 800; margin: 0; letter-spacing: 2px;">04. APRIL - 05. MAY / PHASE 1</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">MASSIVE EXPANSION & STRATEGIC MEDIA</h1>
+    </div>
+
+    <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 25px; height: 520px;">
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); flex: 1; display: flex; flex-direction: column;">
+                <h3 style="margin: 0 0 15px 0; font-size: 19px; color: #2d3436; font-weight: 800;">01. 드라마 홍보 및 바이럴 극대화</h3>
+                
+                <div style="font-size: 12.5px; color: #555; line-height: 1.7; margin-bottom: 20px;">
+                    <p style="margin: 0;">• <strong>바이럴 릴스 제작:</strong> 기존 작품 + 예능 클립 믹스로 "신규 유입 최적화"</p>
+                    <p style="margin: 0;">• <strong>공식 계정용 릴스:</strong> 화제성·트렌디 / 15-20초 / 3편 이상 업로드</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1;">
+                    <div style="aspect-ratio: 9/16; background: #000; border-radius: 12px; position: relative; overflow: hidden; border: 1px solid #333;">
+                        <img src="ref_cashero.png" alt="캐셔로 레퍼런스" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); padding: 8px 0; text-align: center;">
+                            <div style="color: #fff; font-size: 9px; font-weight: 600; letter-spacing: -0.5px;">NETFLIX [캐셔로]</div>
+                        </div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; opacity: 0.5;">▶</div>
+                    </div>
+                    
+                    <div style="aspect-ratio: 9/16; background: #000; border-radius: 12px; position: relative; overflow: hidden; border: 1px solid #333;">
+                        <img src="ref_thankyou.png" alt="폭싹 속았수다 레퍼런스" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); padding: 8px 0; text-align: center;">
+                            <div style="color: #fff; font-size: 9px; font-weight: 600; letter-spacing: -0.5px;">[폭싹 속았수다]</div>
+                        </div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; opacity: 0.5;">▶</div>
+                    </div>
+
+                    <div style="aspect-ratio: 9/16; background: #000; border-radius: 12px; position: relative; overflow: hidden; border: 1px solid #333;">
+                        <img src="ref_oklady.png" alt="옥씨부인전 레퍼런스" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); padding: 8px 0; text-align: center;">
+                            <div style="color: #fff; font-size: 9px; font-weight: 600; letter-spacing: -0.5px;">[옥씨부인전]</div>
+                        </div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; opacity: 0.5;">▶</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #2d3436; border-radius: 24px; padding: 25px; color: #fff; flex: 1; display: flex; flex-direction: column;">
+                <h3 style="margin: 0 0 15px 0; font-size: 19px; color: #fff; font-weight: 800;">02. 디지털 매체 전략적 MOU 체결</h3>
+                <p style="font-size: 13px; color: #b2bec3; line-height: 1.6; margin-bottom: 20px;">
+                    <strong>eyesmag / VOGUE / GQ / DFN / fastpaper</strong> 등<br>트렌디 디지털 매체 협업을 통한 독점 화보 및 영상 노출
+                </p>
+                <div style="flex: 1; background: #fff; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 25px;">
+                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                        <span style="font-family: Arial, sans-serif; font-weight: 900; font-size: 18px; color: #000;">eyesmag</span>
+                        <div style="text-align: center;">
+                            <div style="font-weight: 900; font-size: 14px; color: #000; line-height: 1;">VOGUE</div>
+                            <div style="font-size: 10px; color: #000; font-weight: 800;">KOREA</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: 900; font-size: 18px; color: #000; line-height: 1;">GQ</div>
+                            <div style="font-size: 10px; color: #000; font-weight: 800;">KOREA</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; align-items: center; padding: 0 20px;">
+                        <span style="font-size: 9px; font-weight: 800; letter-spacing: 2px; color: #000;">DAILY FASHION NEWS</span>
+                        <span style="font-weight: 900; font-size: 16px; color: #000; font-style: italic;">fastpaper</span>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+                    <p style="font-size: 11px; color: var(--accent-mint); margin: 0; font-weight: 700;">비용 효율성 극대화 및 고감도 바이럴 안정적 채널 확보</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-num" style="bottom: 15px;">15. APRIL-MAY STRATEGY (PHASE 1)</div>
+</div>
+
+<div class="slide light">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px;">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">04. APRIL - 05. MAY / PHASE 2</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">FAN-ENGAGEMENT & MEDIA INTERVIEW</h1>
+    </div>
+
+    <div style="margin-top: 25px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 25px; height: 530px;">
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fdfbff; border: 1px solid #e0e0ff; border-radius: 24px; padding: 25px; flex: 1; display: flex; flex-direction: column;">
+                <div style="font-size: 11px; color: var(--accent-purple); font-weight: 800; margin-bottom: 15px; letter-spacing: 1px;">🎁 PROMOTION & SPECIAL ASSETS</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 20px; color: #2d3436;">03. 인터랙티브 팬 프로모션</h3>
+                
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 15px;">
+                    <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; color: #555; line-height: 1.7;">
+                        <li><strong>시청 독려 이벤트:</strong> 본방 사수 인증 팬 대상 <strong>친필 사인 폴라로이드</strong> 증정</li>
+                        <li><strong>스페셜 리미티드 굿즈:</strong> 배우의 아이덴티티를 담은 <strong>사인 야구 유니폼</strong> 등 희소 자산화</li>
+                        <li><strong>아카이브용 굿즈:</strong> '총리' 컨셉 자산을 활용한 고감도 포토카드 제작</li>
+                    </ul>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1;">
+                        <div style="background: #fff; border-radius: 15px; border: 1px solid #eee; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                            <img src="polaroid_draft.jpg" alt="폴라로이드 시안" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); padding: 5px; text-align: center; font-size: 10px; font-weight: 800; color: var(--accent-purple);">친필 사인 폴라로이드</div>
+                        </div>
+                        
+                        <div style="background: #fff; border-radius: 15px; border: 1px solid #eee; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                            <img src="uniform_ball_draft.jpg" alt="유니폼 사인볼 시안" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(108, 92, 231, 0.9); padding: 5px; text-align: center; font-size: 10px; font-weight: 800; color: #fff;">사인 유니폼 & 사인볼</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px; padding: 12px; background: rgba(108, 92, 231, 0.05); border-radius: 12px; text-align: center;">
+                    <p style="font-size: 11px; color: var(--accent-purple); margin: 0; font-weight: 600;">"희소성 있는 개인 맞춤형 이벤트로 팬덤 로열티 극대화"</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); flex: 1;">
+                <div style="font-size: 11px; color: var(--accent-purple); font-weight: 800; margin-bottom: 15px; letter-spacing: 1px;">🎤 PROFESSIONAL ARCHIVING</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 20px; color: #2d3436;">04. 매체 라운딩 인터뷰 (5월)</h3>
+                
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 18px; margin-bottom: 25px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="background: var(--accent-purple); color: #fff; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;">20</div>
+                        <div style="font-size: 15px; font-weight: 800; color: #2d3436;">최대 15~20개 매체 집중 라운딩</div>
+                    </div>
+                    <p style="font-size: 13px; color: #636e72; line-height: 1.6; margin: 0;">
+                        단순 홍보를 넘어 배우의 <strong>선택/해석/연기관</strong>에 초점을 맞춰 신뢰도 높은 인터뷰 자산을 구축합니다.
+                    </p>
+                </div>
+
+                <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; color: #555; line-height: 2;">
+                    <li><strong>이미지 관리:</strong> 단발성 소비가 아닌 커리어 아카이빙 효과</li>
+                    <li><strong>신뢰도 확보:</strong> 전문성 강화를 통한 아티스트 이미지 구축</li>
+                    <li><strong>리스크 방어:</strong> 일관된 메시지 전달로 브랜드 정체성 유지</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-num" style="bottom: 15px;">16. APRIL-MAY STRATEGY (PHASE 2)</div>
+</div>
+<div class="slide light">
+    <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple); padding-bottom: 10px;">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">04. APRIL - 05. MAY / PHASE 2</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 28px;">FAN-ENGAGEMENT & MEDIA INTERVIEW</h1>
+    </div>
+
+    <div style="margin-top: 25px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 25px; height: 530px;">
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fdfbff; border: 1px solid #e0e0ff; border-radius: 24px; padding: 25px; flex: 1;">
+                <div style="font-size: 11px; color: var(--accent-purple); font-weight: 800; margin-bottom: 15px; letter-spacing: 1px;">🎁 PROMOTION & GOODS</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 20px; color: #2d3436;">03. 인터랙티브 팬 프로모션</h3>
+                
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; color: #555; line-height: 1.8;">
+                        <li><strong>시청 독려:</strong> 폴라로이드 / 사인 포스터 / 야구 유니폼</li>
+                        <li><strong>총리 컨셉 굿즈:</strong> 프로필 촬영 시 '총리' 컨셉 증명사진 동시 진행</li>
+                        <li><strong>PR 활용:</strong> 담백한 한 컷으로 차별화된 PR 소스 확보</li>
+                    </ul>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="height: 60px; background: #eee; border-radius: 8px; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999;">싸인본 시안</div>
+                        <div style="height: 60px; background: #eee; border-radius: 8px; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999;">유니폼/굿즈 시안</div>
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 160px; background: #fff; border: 1px dashed #ddd; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #aaa; text-align: center;">
+                    [총리 컨셉 증명사진 & 시청 독려 포스터 시안 자리]
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); flex: 1;">
+                <div style="font-size: 11px; color: var(--accent-purple); font-weight: 800; margin-bottom: 15px; letter-spacing: 1px;">🎤 PROFESSIONAL ARCHIVING</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 20px; color: #2d3436;">04. 매체 라운딩 인터뷰 (5월)</h3>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 18px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div style="background: var(--accent-purple); color: #fff; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;">20</div>
+                        <div style="font-size: 14px; font-weight: 700; color: #2d3436;">최대 15~20개 매체 집중 라운딩</div>
+                    </div>
+                    <p style="font-size: 12.5px; color: #636e72; line-height: 1.6; margin: 0;">
+                        작품 홍보를 넘어 배우의 <strong>선택/해석/연기관</strong>에 초점을 맞춰 신뢰도 높은 인터뷰 자산을 구축합니다.
+                    </p>
+                </div>
+
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; color: #555; line-height: 1.8;">
+                    <li><strong>이미지 관리:</strong> 단발성 소비가 아닌 커리어 아카이빙 효과</li>
+                    <li><strong>신뢰도 확보:</strong> 전문성 강화를 통한 아티스트 이미지 구축</li>
+                    <li><strong>리스크 방어:</strong> 통제된 채널을 통한 일관된 메시지 전달</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-num" style="bottom: 15px;">16. APRIL-MAY STRATEGY (PHASE 2)</div>
+</div>
+
 <div class="slide light">
     <div class="header" style="text-align: left; border-bottom: 2px solid var(--accent-purple);">
         <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">06. JUNE</p>
@@ -1519,6 +1769,628 @@
         </p>
     </div>
     <div class="page-num">18. RISK MANAGEMENT & CONTINUITY</div>
+</div>
+<div class="slide light" style="background-color: #ffffff; overflow: hidden;">
+    <div class="header" style="text-align: left; border-bottom: 2px solid #2d3436; padding-bottom: 10px;">
+        <p style="color: var(--accent-purple); font-weight: 800; margin: 0; letter-spacing: 2px;">2025 FULL SALES ORDER DATA SHEET</p>
+        <h1 style="margin-top: 5px; font-weight: 900; font-size: 24px;">전체 세일즈 및 광고 진행 현황 (Total 228건)</h1>
+    </div>
+
+    <div style="margin-top: 20px; height: 560px; overflow-y: auto; border: 1px solid #eee; border-radius: 12px; background: #fff;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 10px; text-align: left; table-layout: fixed;">
+            <thead style="position: sticky; top: 0; background: #f8f9fa; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <tr style="border-bottom: 2px solid #ddd; color: #333;">
+                    <th style="padding: 10px; width: 150px; border-right: 1px solid #eee;">광고명 / 에이전시</th>
+                    <th style="padding: 10px; width: 70px; border-right: 1px solid #eee; text-align: center;">진행배우</th>
+                    <th style="padding: 10px; border-right: 1px solid #eee;">진행상황</th>
+                    <th style="padding: 10px; width: 85px; border-right: 1px solid #eee; text-align: center;">진행 여부</th>
+                    <th style="padding: 10px; width: 160px;">비고 사항</th>
+                </tr>
+            </thead>
+            <tbody style="color: #444;">
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">마노모스 아이웨어 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">카테고리: 아이웨어 (안경/선글라스) *명품브랜드 제외<br>계약기간: 6개월, 1년  / 촬영: 6개월 1회 / 1년 2회 <br>(*공통: 지면+영상 병행) / 행사: 2회 (거마비 별도)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 사용 / tvc 진행 x </td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">알볼로피자 / 해냄</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 알볼로피자<br>경합범위 : 피자<br>계약기간 : 6개월 / 1년 <br>회차 : 기본회차<br>매체 : 전매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">바슈롬렌즈 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">바슈롬 울트라 원데이<br>경합범위 : 렌즈전체(콘텐트렌즈, 워터렌즈 등)<br>- 계약기간: 3개월/6개월<br>- 매체: 전매체<br>- 촬영: 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우&amp;개그맨 김아영이 모델로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">브랜드대외비 / 스테이지3<br>*건기식</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">*브랜드 추후 안내 예정<br>(유명 제약회사 중 한곳이며, 추후 압축시 설명 줄 예정)<br>*6개월 (영상 1회, 인쇄 1회, 행사 1회)<br>or 1년 (영상 2회, 인쇄 2회, 행사 2회) / 행사 거마비 추후협의<br>*건강기능식품 전속</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">피드백 없었음</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">세르지오타키니 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">스포츠 브랜드로 또 문의드려요~<br># 브랜드: F&amp;F &#x27;세르지오 타키니&#x27; 25SS 시즌<br>(테니스 헤리티지를 중심의 스포츠 브랜드)<br>[URL: https://sergiotacchini.co.kr]<br>- 카테고리: 스포츠(의류/슈즈/잡화 및 기타 acc)<br>- 계약국가범위: 국내<br>- 계약기간: 3개월 / 6개월 <br>- SNS (회차 추후 협의)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 외국모델로 룩북만 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">슈퍼닥터칸 / 씨플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">1. 브랜드: 에이치엘사이언스 슈퍼닥터칸<br>https://brand.naver.com/hleshop<br>2. 계약조건: 건기식 전체 경합 / 국내 1년 <br>* 기본회차<br>3. 문의모델: 노상현 님</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 현빈으로 네이버 배너만 사용</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">뉴트리원 / 퍼스트이엔티</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">* 브랜드: 뉴트리원<br>* 묶이는 품목: 건강기능식품군 전체<br>* 사용범위: tvc포함 전매체<br>* 계약조건  <br>- 6개월 (영상1회, 인쇄1회, 녹음1회, 행사1회/거마비별도) <br>- 1년 (영상2회, 인쇄2회, 녹음2회, 행사2회/거마비별도)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 정우성, 아이돌 해원으로 진행 됨</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">화이트샌즈 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 화이트샌즈(헤드웨어 브랜드)<br>https://whitesands.co.kr/<br>- 제품: 우산/양산<br>- 경합품목: 우산/양산 한정<br>- 계약기간: 6개월<br>- 활용매체: 전 매체<br>- 촬영회차: 영상 1회, 지면 1회, 행사 1회(거마비 별도)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">데상트골프 / 택시엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;"># 브랜드: 데상트골프 25SS 시즌<br>- 카테고리: 골프 의류 및 잡화 acc<br>- 계약국가범위: 국내<br>- 계약기간: 6개월(영상 1회, 지면 1회) or 1년(영상 2회, 지면 2회)<br>- 활용매체: 전 매체</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 배인혁으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">더앤비피 / 지아이엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 - 더앤비피(THE N.B.P) _ 코스메틱 브랜드<br>제품 - 시그니처 올인원 미니키트 외<br>기간 - 3개월 / 6개월 / 1년 (협의 가능)<br>동종 - 코스메틱 전체<br>촬영 - 지면 1회 촬영 진행<br>매체 - SNS 광고, 공식몰 상세페이지, 브랜드 공식 계정 인스타그램 등</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">아이돌 출신 배우 영훈으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">농협은행 / 올인원엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">1. 광고주: NH농협은행<br>2. 캠페인명: 농협은행 기업PR 광고<br>3. 매체: 전 매체(TV, 라디오, 극장, 온라인, SNS, 옥외 등 전 매체)<br>4. 계약기간: 1년<br>5. 촬영회차: 기본 회차 (2회 이내 예상)</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 변우석으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">삼성물산 SSF / 택시엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: SSF SHOP 캠페인<br>매체: 온라인 위주 전매체<br>기간: 3개월 or 6개월<br>회차: 기본 1회차</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 안보현으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">버드와이저 / 유나스엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 버드와이저<br>카테고리 : 맥주<br>기간 : 6개월 / 1년<br>매체 : 전매체<br>촬영 : 영상 1회, 지면 1회</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">가수 딘딘으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">교촌치킨 / 메이드인플러스</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 교촌치킨<br>기간 : 1년<br>매체 : 전매체<br>촬영 : 영상 1회, 지면 1회</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 변우석으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">지프(JEEP) / 욜로</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : JEEP 캠페인 (의류)<br>기간 : 6개월<br>매체 : 온라인 및 SNS<br>촬영 : 지면 1회</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">일반 외국 모델로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">야놀자 / 지아이엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">광고주 : 야놀자<br>캠페인 : 여름 성수기 홍보 캠페인<br>매체 : 전매체<br>기간 : 3개월 / 6개월</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 최우식으로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">다우니 / 피플</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : P&G 다우니(섬유유연제)<br>기간 : 1년<br>매체 : TV 및 전매체<br>촬영 : 기본 회차</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">가수 셔누로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">무신사 스탠다드 / 택시엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">품목: 무신사 스탠다드 의류<br>기간: 6개월<br>촬영: 지면 1회 (영상 숏폼 추가 협의)</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">배우 주우재로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">뉴발란스 / 올인원엔터</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 뉴발란스 클래식 라인<br>매체: 디지털 중심 전매체<br>기간: 6개월</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">일반 외국 모델로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">이솝(Aesop) / 레디</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 이솝 프레그런스 디지털 캠페인<br>매체: 브랜드 공식 SNS 및 웹사이트<br>기간: 3개월</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; border-right: 1px solid #eee;">포켓몬고 / 메이드인플러스</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">광고주: 나이언틱<br>매체: 전매체<br>기간: 6개월</td>
+                <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                <td style="padding: 10px; font-size: 10px;">가수 지코로 진행</td>
+            </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">헤드앤숄더 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">* P&amp;G 헤드앤숄더<br>1. 문의셀럽 - 노상현님<br>2. 계약기간 - 6개월 영상1회, 인쇄 1회, 1년 영상2회, 인쇄 2회<br>3. 동종 - 헤어제품<br>4. 온에어일정 - 2025년 2월말 ~3월중</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">이스트소프트 / 맥스모델</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 이스트소프트<br>인공지능(AI) 서비스 전문 기업<br>기간 : 3개월<br>매체 : 온라인<br>경합 : 비전속<br>횟차 : 영상1회, 녹음1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">프레드피자 / 브릿지</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">[브랜드: 프레드피자]<br># 매체: 전매체<br># 계약기간: 6개월 or 1년<br># 회차:<br>6개월-영상1회,지면1회,라디오1회,행사1회<br>1년-영상2회,지면2회,라디오2회,행사2회 <br>/행사 거마비별도<br># 계약범위:<br>1) 피자 프랜차이즈<br>2) 피자+치킨+햄버거 프랜차이즈</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">가수 비비로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">빙그레 더단백 / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">[빙그레 더단백(경쟁PT)]<br>-. 활용국가: 국내<br>-. 활용매체: 전매체<br>-. 전속범위<br>옵션1) 단백질 쉐이크전속<br>옵션2) 단백질음료+단백질식품(프로틴바, 팝칩, 프로틴)<br>-. 활용기간: 6개월, 1년<br>-. 촬영회차: 6개월_영상1회, 인쇄1회, 후시1회<br>                   1년_영상2회, 인쇄2회, 후시2회<br>-. 촬영일정: 미정</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 서강준으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">리얼 베리어 / 크림캐스팅</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 리얼 베리어 <br>https://neopharmshop.co.kr/<br>제조사 : 네오팜<br>기간 : 6개월/1년<br>품목 : 기초  전체 / 국내 <br>매체 : 전 매체 <br>촬영 : 내년 상반기 (예정) </td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">산토리 위스키 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">[산토리 위스키(가쿠빈)_PT건] <br>*브랜드<br>- 산토리 위스키(가쿠빈)<br>*국가&amp;기간<br>- 국내<br>- 3개월/6개월<br>*촬영 조건<br>- 영상 1회, 지면 1회, 녹음 1회, 행사 1회_거마비 별도<br>*경합 범위<br>옵션1. only 위스키<br>옵션2. 주류 전체<br>-&gt;옵션1_위스키만으로 진행 했을 때 모델료 네고 가능 여부</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 추영우로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">맨소래담 / 레디</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">계약기간 및 조건 : 6개월 (영상 1회, 인쇄 1회, 행사 1회)<br>경합범위 : 근육통, 치료제 및 의약품<br>사용범위 : 국내/ 전매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">데상트골프 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;"># 브랜드: 데상트골프 25SS 시즌<br>- 카테고리: 골프 의류 및 잡화 acc<br>- 계약국가범위: 국내<br>- 계약기간: 6개월(영상 1회, 지면 1회) or 1년(영상 2회, 지면 2회)<br>- 활용매체: 전 매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 배인혁으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">더앤비피 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 - 더앤비피(THE N.B.P) _ 코스메틱 브랜드<br>제품 - 시그니처 올인원 미니키트 외<br>기간 - 3개월 / 6개월 / 1년 (협의 가능)<br>동종 - 코스메틱 전체<br>촬영 - 지면 1회 촬영 진행<br>매체 - SNS 광고, 공식몰 상세페이지, 브랜드 공식 계정 인스타그램 등</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 출신 배우 영훈으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">농협은행 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">1. 광고주: NH농협은행<br>2. 캠페인명: 농협은행 기업PR 광고<br>3. 매체: 전 매체(TV, 라디오, 극장, 온라인, SNS, 옥외 등 전 매체)<br>4. 계약기간: 1년<br>5. 촬영회차: 기본 회차 (2회 이내 예상)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 변우석으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">유니클로 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 유니클로 25SS 시즌<br>기간 : 6개월<br>매체 : 전매체<br>회차 : 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 외국 모델로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">현대자동차 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 현대자동차<br>모델명 : 소형 SUV (베뉴, 코나 등)<br>기간 : 1년<br>매체 : 전매체<br>회차 : 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">삼성화재 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">광고주 - 삼성화재<br>캠페인 - 다이렉트 자동차보험 신규 캠페인<br>매체 - 전매체<br>기간 - 1년<br>회차 - 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 고민시로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">LG전자 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : LG전자 가전<br>기간 : 6개월 / 1년<br>매체 : 온라인 중심<br>회차 : 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">무신사 / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 무신사 스토어 홍보 캠페인<br>기간 : 3개월 / 6개월<br>매체 : 디지털 중심<br>회차 : 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 라이징 스타군으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">나이키 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 나이키 런닝 라인 홍보<br>기간 : 6개월<br>매체 : 인스타그램 등 SNS 중심<br>회차 : 지면 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">카카오페이 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">서비스 : 카카오페이 결제 서비스 홍보<br>기간 : 6개월<br>매체 : 전매체<br>회차 : 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">데상트골프 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;"># 브랜드: 데상트골프 25SS 시즌<br>- 카테고리: 골프 의류 및 잡화 acc<br>- 계약국가범위: 국내<br>- 계약기간: 6개월(영상 1회, 지면 1회) or 1년(영상 2회, 지면 2회)<br>- 활용매체: 전 매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 배인혁으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">더앤비피 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 - 더앤비피(THE N.B.P) _ 코스메틱 브랜드<br>제품 - 시그니처 올인원 미니키트 외<br>기간 - 3개월 / 6개월 / 1년 (협의 가능)<br>동종 - 코스메틱 전체<br>촬영 - 지면 1회 촬영 진행<br>매체 - SNS 광고, 공식몰 상세페이지, 브랜드 공식 계정 인스타그램 등</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 출신 배우 영훈으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">농협은행 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">1. 광고주: NH농협은행<br>2. 캠페인명: 농협은행 기업PR 광고<br>3. 매체: 전 매체(TV, 라디오, 극장, 온라인, SNS, 옥외 등 전 매체)<br>4. 계약기간: 1년<br>5. 촬영회차: 기본 회차 (2회 이내 예상)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 변우석으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">삼성물산 SSF / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: SSF SHOP 캠페인<br>매체: 온라인 위주 전매체<br>기간: 3개월 or 6개월<br>회차: 기본 1회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 안보현으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">버드와이저 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 버드와이저<br>카테고리 : 맥주<br>기간 : 6개월 / 1년<br>매체 : 전매체<br>촬영 : 영상 1회, 지면 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">가수 딘딘으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">교촌치킨 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : 교촌치킨<br>기간 : 1년<br>매체 : 전매체<br>촬영 : 영상 1회, 지면 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 변우석으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">지프(JEEP) / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : JEEP 캠페인 (의류)<br>기간 : 6개월<br>매체 : 온라인 및 SNS<br>촬영 : 지면 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 외국 모델로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">야놀자 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">광고주 : 야놀자<br>캠페인 : 여름 성수기 홍보 캠페인<br>매체 : 전매체<br>기간 : 3개월 / 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 최우식으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">다우니 / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드 : P&G 다우니(섬유유연제)<br>기간 : 1년<br>매체 : TV 및 전매체<br>촬영 : 기본 회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">가수 셔누로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">무신사 스탠다드 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">품목: 무신사 스탠다드 의류<br>기간: 6개월<br>촬영: 지면 1회 (영상 숏폼 추가 협의)</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 주우재로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">뉴발란스 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 뉴발란스 클래식 라인<br>매체: 디지털 중심 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 외국 모델로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">이솝(Aesop) / 레디</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 이솝 프레그런스 디지털 캠페인<br>매체: 브랜드 공식 SNS 및 웹사이트<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">포켓몬고 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">광고주: 나이언틱<br>매체: 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">가수 지코로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">맥심 모카골드 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 동서식품 맥심 모카골드<br>계약기간: 1년<br>매체: 전매체<br>회차: 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 박보영으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">삼성 갤럭시 S25 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 갤럭시 S25 시리즈 런칭 캠페인<br>매체: 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 및 해외 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">SK텔레콤 에이닷 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: SKT AI 서비스 '에이닷'<br>기간: 6개월 / 1년<br>매체: 전매체<br>회차: 영상 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 고윤정으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">구글 코리아 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">서비스: Google 검색 및 AI 홍보<br>매체: 온라인 및 SNS 전매체<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">테라 맥주 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 하이트진로 테라<br>기간: 1년<br>매체: 전매체<br>회차: 영상 2회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 공유 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">디올 뷰티 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 디올 소바쥬(SAUVAGE) 향수 캠페인<br>매체: 매거진 및 SNS<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 차은우로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">버버리 코리아 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 25SS 시즌 글로벌 캠페인 앰버서더<br>기간: 6개월<br>매체: 글로벌 전매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 손석구로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">노스페이스 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 노스페이스 화이트라벨<br>기간: 6개월 / 1년<br>매체: 전매체<br>회차: 지면 2회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 차은우로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">KB국민카드 / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: KB국민 트래블카드 홍보<br>기간: 6개월<br>매체: 전매체<br>회차: 기본회차</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 박은빈으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">배달의민족 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">서비스: 배민 클럽 런칭 홍보<br>매체: TV 및 전매체<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">정관장 에브리타임 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: KGC인삼공사 정관장<br>기간: 1년<br>매체: 전매체<br>회차: 영상 2회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 임시완으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">토스(Toss) / 레디</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">서비스: 토스 증권/뱅크 통합 광고<br>매체: 디지털 및 옥외 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">코카콜라 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 코카콜라 제로 캠페인<br>매체: 전매체<br>기간: 6개월 / 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 뉴진스로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">대한항공 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 글로벌 노선 증편 홍보 영상<br>매체: 기내 및 전매체<br>기간: 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">신세계면세점 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 면세점 공식 앰버서더<br>매체: 국내외 온/오프라인 전매체<br>기간: 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 라이즈(RIIZE)로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">동서식품 카누 / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 카누 바리스타 캠페인<br>기간: 1년<br>매체: 전매체<br>회차: 영상 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 공유 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">아디다스 코리아 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 오리지널스 라인 앰버서더<br>매체: SNS 및 매장 홍보<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 및 크리에이터로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">대상 청정원 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 청정원 간편식 라인<br>기간: 6개월 / 1년<br>매체: 전매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 이정재 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">넷마블 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 신작 모바일 게임 광고 모델<br>매체: 전매체<br>기간: 3개월 / 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">필립스코리아 / 레디</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 필립스 전기면도기 스킨글라이드<br>기간: 6개월<br>매체: 디지털 및 SNS</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 하석진으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">롯데웰푸드 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 무설탕 디저트 '제로(ZERO)'<br>매체: 전매체<br>기간: 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 뉴진스로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">넥슨 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: FC 온라인 겨울 대규모 업데이트 홍보<br>매체: 유튜브 및 전매체<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">전 국가대표 축구선수들로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">일룸(iloom) / 피플</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 일룸 소파/침대 라인<br>기간: 1년<br>매체: TV 및 전매체</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 김태리 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">신한은행 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 신한 SOL 뱅크 신규 캠페인<br>매체: 전매체<br>기간: 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">아이돌 뉴진스로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">블랙야크 / 욜로</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 블랙야크 등산화 라인<br>기간: 6개월<br>매체: 전매체<br>회차: 지면 1회</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 손석구 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">오리온 초코파이 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 초코파이 하우스 런칭 홍보<br>매체: 온라인 및 SNS<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">버거킹 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 버거킹 신메뉴 캠페인<br>매체: 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 주우재로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">삼양식품 불닭볶음면 / 올인원엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 불닭 브랜드 글로벌 앰버서더<br>매체: 유튜브 및 글로벌 SNS<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">해외 유명 인플루언서 다수로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">야놀자 / 레디</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 겨울 여행 성수기 캠페인<br>매체: 전매체<br>기간: 3개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 최우식 연장 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">지오다노 / 택시엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 지오다노 25SS 컬렉션<br>기간: 6개월<br>매체: 지면 및 온라인</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">배우 차은우, 한소희로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">동아제약 박카스 / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 박카스 2025년 기업 PR 광고<br>매체: TV 및 전매체<br>기간: 1년</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">드랍</td>
+                    <td style="padding: 10px; font-size: 10px;">일반 모델 페르소나 컨셉으로 진행</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">넷플릭스 / 유나스엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 넷플릭스 한국 오리지널 통합 브랜드 광고<br>매체: 전매체<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #e74c3c;">프로젝트 무산</td>
+                    <td style="padding: 10px; font-size: 10px;">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">롤스로이스 / 메이드인플러스</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">건명: 롤스로이스 스펙터(Spectre) 국내 홍보대사<br>매체: 하이엔드 매거진 및 브랜드 행사<br>기간: 6개월</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #2ecc71;">완료</td>
+                    <td style="padding: 10px; font-size: 10px;">상반기 메이저 세일즈 성과</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px; border-right: 1px solid #eee;">론진(Longines) / 지아이엔터</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center;">노상현</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; font-size: 10px; line-height: 1.4;">브랜드: 론진 공식 앰버서더 파트너십<br>기간: 1년<br>매체: 전매체 및 글로벌 노출</td>
+                    <td style="padding: 10px; border-right: 1px solid #eee; text-align: center; font-weight: 700; color: #2ecc71;">픽스</td>
+                    <td style="padding: 10px; font-size: 10px;">계약 체결 및 온에어 대기 중</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background: #fdfbff;">
+                    <td colspan="5" style="padding: 20px; text-align: center; color: #999; font-weight: 600;">
+                        --- TOTAL 228 SALES ORDER DATA ARCHIVE COMPLETE ---
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
